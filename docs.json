@@ -50,15 +50,21 @@
           {
             "group": "API Documentation",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/authorization",
+              "api-reference/python"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Endpoints",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "api-reference/endpoint/create-scan",
+              "api-reference/endpoint/get-scan",
+              "api-reference/endpoint/search",
+              "api-reference/endpoint/fast-check",
+              "api-reference/endpoint/scan-feedback",
+              "api-reference/endpoint/user-agent",
+              "api-reference/endpoint/viewport",
             ]
           }
         ]
