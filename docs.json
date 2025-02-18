@@ -6,6 +6,13 @@
     "primary": "#1DC775",
     "light": "#E3E3E3"
   },
+  "styling": {
+    "background": {
+      "color": {
+        "light": "#FFFFFF",
+        "dark": "#1A1A1A"
+    }
+  },
   "favicon": "/images/logo_green.png",
   "navigation": {
     "tabs": [
@@ -88,12 +95,5 @@
       "github": "https://github.com/urldna",
       "linkedin": "https://linkedin.com/company/urldna"
     }
-  },
-  {
-  "styles": {
-    "body": {
-      "backgroundColor": "#303030"
-    }
   }
-}
 }
