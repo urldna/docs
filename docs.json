@@ -51,7 +51,8 @@
             "group": "API Documentation",
             "pages": [
               "api-reference/introduction",
-              "api-reference/python"
+              "api-reference/python",
+              "api-reference/quota-limit"
             ]
           },
           {
