@@ -7,7 +7,7 @@
     "light": "#E3E3E3",
     "background": {
       "dark": "#303030",
-      "dark": "#E3E3E3"
+      "light": "#E3E3E3"
     }
   },
   "favicon": "/images/logo_green.png",
