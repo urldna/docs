@@ -52,7 +52,7 @@
           "ip_address": { "type": "object" },
           "malicious": { "type": "object" },
           "page": { "type": "object" },
-          "scan": { "type": "object" },
+          "scan": { "$ref": "#/components/schemas/ScanResult" },
           "scan_feedback": { "type": "object" },
           "scan_whois": { "type": "object" },
           "screenshot": { "type": "string" },
@@ -234,7 +234,10 @@
                     "type": "object",
                     "properties": {
                       "browser": { "type": "string" },
-                      "device": { "type": "string" },
+                      "device": {
+                        "type": "string",
+                        "enum": ["DESKTOP", "MOBILE"]
+                      },
                       "share": { "type": "number" },
                       "user_agent": { "type": "string" }
                     }
@@ -260,7 +263,10 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "device": { "type": "string" },
+                      "device": {
+                        "type": "string",
+                        "enum": ["DESKTOP", "MOBILE"]
+                      },
                       "height": { "type": "number" },
                       "width": { "type": "number" }
                     }
