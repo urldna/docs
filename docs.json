@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "urlDNA - Documentation",
   "colors": {
-    "primary": "#16A34A",
+    "primary": "#1DC775",
     "light": "#07C983",
-    "dark": "#15803D"
+    "dark": "#303030"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
