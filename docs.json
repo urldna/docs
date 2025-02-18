@@ -7,13 +7,9 @@
     "light": "#1DC775",
     "dark": "#1DC775"
   },
-  "styling": {
-    "backgroundColor": {
-      "color": {
-        "light": "#E3E3E3",
-        "dark": "#3f3030"
-      }
-    }
+  "fonts": {
+    "familiy": "Montserrat",
+    "source": "https://fonts.googleapis.com/css2?family=Montserrat"
   },
   "favicon": "/images/logo_green.png",
   "navigation": {
