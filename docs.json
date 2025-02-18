@@ -54,23 +54,17 @@
     "dark": "/logo_green.png"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:urldna@urldna.io"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Go to ulrDNA",
+      "href": "https://urldna.io"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/urldna",
+      "github": "https://github.com/urldna",
+      "linkedin": "https://linkedin.com/company/urldna"
     }
   }
 }
