@@ -17,6 +17,10 @@
     "default": "dark",
     "strict": true
   },
+  "fonts": {
+    "family": "Montserrat",
+    "source": "https://fonts.googleapis.com/css2?family=Montserrat"
+  },
   "favicon": "/images/logo_green.png",
   "navigation": {
     "tabs": [
