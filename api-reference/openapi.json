@@ -20,6 +20,29 @@
       }
     },
     "schemas": {
+      "Viewport": {
+        "type": "object",
+        "properties": {
+          "device": {
+            "type": "string",
+            "enum": ["DESKTOP", "MOBILE"]
+          },
+          "width": { "type": "number" },
+          "height": { "type": "number" }
+        }
+      },
+      "UserAgent": {
+        "type": "object",
+        "properties": {
+          "user_agent": { "type": "string" },
+          "device": {
+            "type": "string",
+            "enum": ["DESKTOP", "MOBILE"]
+          },
+          "browser": { "type": "string" },
+          "share": { "type": "number" }
+        }
+      },
       "Scan": {
         "type": "object",
         "properties": {
@@ -259,16 +282,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "browser": { "type": "string" },
-                      "device": {
-                        "type": "string",
-                        "enum": ["DESKTOP", "MOBILE"]
-                      },
-                      "share": { "type": "number" },
-                      "user_agent": { "type": "string" }
-                    }
+                    "$ref": "#/components/schemas/UserAgent"
                   }
                 }
               }
@@ -289,15 +303,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "device": {
-                        "type": "string",
-                        "enum": ["DESKTOP", "MOBILE"]
-                      },
-                      "height": { "type": "number" },
-                      "width": { "type": "number" }
-                    }
+                    "$ref": "#/components/schemas/Viewport"
                   }
                 }
               }
