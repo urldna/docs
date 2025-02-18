@@ -19,7 +19,7 @@
   },
   "fonts": {
     "family": "Montserrat",
-    "source": "https://fonts.googleapis.com/css2?family=Montserrat"
+    "source": "https://github.com/JulietaUla/Montserrat/raw/refs/heads/master/fonts/webfonts/Montserrat-Regular.woff2"
   },
   "favicon": "/images/logo_green.png",
   "navigation": {
