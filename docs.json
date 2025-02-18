@@ -51,7 +51,6 @@
             "group": "API Documentation",
             "pages": [
               "api-reference/introduction",
-              "api-reference/authorization",
               "api-reference/python"
             ]
           },
@@ -64,7 +63,7 @@
               "api-reference/endpoint/fast-check",
               "api-reference/endpoint/scan-feedback",
               "api-reference/endpoint/user-agent",
-              "api-reference/endpoint/viewport",
+              "api-reference/endpoint/viewport"
             ]
           }
         ]
