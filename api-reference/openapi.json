@@ -73,43 +73,186 @@
             "enum": ["PENDING", "RUNNING", "DONE", "ERROR"]
           },
           "submitted_date": { "type": "string", "format": "date-time" },
-          "start_date": { "type": "string", "format": "date-time" },
-          "end_date": { "type": "string", "format": "date-time" },
-          "elapsed_time": { "type": "number" },
           "submitter_tags": {
             "type": "array",
             "items": { "type": "string" }
           }
         }
       },
+      "Certificate": {
+        "type": "object",
+        "properties": {
+          "authority_info_access": { "type": "string" },
+          "authority_key_identifier": { "type": "string" },
+          "basic_constraints": { "type": "string" },
+          "certificate_policies": { "type": "string" },
+          "ct_precert_scts": { "type": "string" },
+          "extended_key_usage": { "type": "string" },
+          "issuer": { "type": "string" },
+          "key_usage": { "type": "string" },
+          "not_after": { "type": "string" },
+          "not_before": { "type": "string" },
+          "serial_number": { "type": "string" },
+          "subject": { "type": "string" },
+          "subject_key_identifier": { "type": "string" },
+          "version": { "type": "number" }
+        }
+      },
+      "Certificate": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string" },
+          "type": { "type": "string" }
+        }
+      },
+      "Cookie": {
+        "type": "object",
+        "properties": {
+          "domain": { "type": "string" },
+          "expiry": { "type": "string" },
+          "http_only": { "type": "boolean" },
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "secure": { "type": "boolean" },
+          "value": { "type": "string" }
+        }
+      },
+      "Favicon": {
+        "type": "object",
+        "properties": {
+          "blob_uri": { "type": "string" },
+          "format": { "type": "string" },
+          "height": { "type": "number" },
+          "mimetype": { "type": "string" },
+          "name": { "type": "string" },
+          "phash": { "type": "string" },
+          "url": { "type": "string" },
+          "width": { "type": "number" }
+        }
+      },
+      "HttpTransaction": {
+        "type": "object",
+        "properties": {
+          "content_type": { "type": "string" },
+          "ip": { "type": "string" },
+          "method": { "type": "string" },
+          "mimetypes": { "type": "string" },
+          "size": { "type": "number" },
+          "status_code": { "type": "number" },
+          "url": { "type": "string" }
+        }
+      },
+      "IpAddress": {
+        "type": "object",
+        "properties": {
+          "asn": { "type": "string" },
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "country_code": { "type": "string" },
+          "isp": { "type": "string" },
+          "isp": { "type": "string" },
+          "latitude": { "type": "number" },
+          "longitude": { "type": "number" },
+          "org": { "type": "string" },
+          "region": { "type": "string" },
+          "timezone_gmt": { "type": "string" },
+          "type": { "type": "string" }
+        }
+      },
+      "Malicious": {
+        "type": "object",
+        "properties": {
+          "malicious": { "type": "boolean" },
+          "threat": {
+            "type": "string",
+            "enum": ["SCAM", "SOCIAL_ENGINEERING", "SCAM"]
+          },
+        }
+      },
+      "Page": {
+        "type": "object",
+        "properties": {
+          "headers": { "type": "object" },
+          "meta_tags": { "type": "object" },
+          "outgoing_links": { 
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "ssdeep": { "type": "string" },
+          "text": { "type": "string" },
+          "title": { "type": "string" }
+        }
+      },
+      "ScanFeedback": {
+        "type": "object",
+        "properties": {
+          "malicious_count": { "type": "number" },
+          "safe_count": { "type": "number" }
+        }
+      },
+      "ScanWhois": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string" },
+          "country": { "type": "string" },
+          "creation_date": { "type": "string" },
+          "domain_name": { "type": "string" },
+          "expiration_date": { "type": "string" },
+          "name": { "type": "string" },
+          "org": { "type": "string" },
+          "registrant_postal_code": { "type": "string" },
+          "registrar": { "type": "string" },
+          "state": { "type": "string" },
+          "updated_date": { "type": "string" }
+        }
+      },
+      "Screenshot": {
+        "type": "object",
+        "properties": {
+          "blob_uri": { "type": "string" },
+          "format": { "type": "string" },
+          "height": { "type": "number" },
+          "mimetype": { "type": "string" },
+          "phash": { "type": "string" },
+          "width": { "type": "number" }
+        }
+      },
+      "Technology": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string" },
+          "name": { "type": "string" },
+          "version": { "type": "string" }
+        }
+      },
       "ScanResult": {
         "type": "object",
         "properties": {
-          "certificate": { "type": "object" },
+          "certificate": { "$ref": "#/components/schemas/Certificate" },
           "console_messages": {
             "type": "array",
-            "items": { "type": "object" }
+            "items":{ "$ref": "#/components/schemas/ConsoleMessage" }
           },
           "cookies": {
             "type": "array",
-            "items": { "type": "object" }
+            "items": { "$ref": "#/components/schemas/Cookie" }
           },
           "dom": { "type": "string" },
-          "favicon": { "type": "object" },
+          "favicon": { "$ref": "#/components/schemas/Favicon" },
           "http_transactions": {
             "type": "array",
-            "items": { "type": "object" }
+            "items": { "$ref": "#/components/schemas/HttpTransaction" }
           },
-          "ip_address": { "type": "object" },
-          "malicious": { "type": "object" },
-          "page": { "type": "object" },
+          "ip_address": { "$ref": "#/components/schemas/IpAddress" },
+          "malicious":{ "$ref": "#/components/schemas/Malicious" },
+          "page": { "$ref": "#/components/schemas/Page" },
           "scan": { "$ref": "#/components/schemas/Scan" },
-          "scan_feedback": { "type": "object" },
-          "scan_whois": { "type": "object" },
-          "screenshot": { "type": "string" },
+          "scan_feedback": { "$ref": "#/components/schemas/ScanFeedback" },
+          "scan_whois": { "$ref": "#/components/schemas/ScanWhois" },
+          "screenshot": { "$ref": "#/components/schemas/Screenshot" },
           "technologies": {
             "type": "array",
-            "items": { "type": "object" }
+            "items": { "$ref": "#/components/schemas/Technology" }
           }
         }
       }
@@ -163,7 +306,8 @@
                   "submitted_url": { "type": "string" },
                   "scanned_from": {
                     "type": "string",
-                    "default": "DEFAULT"
+                    "default": "DEFAULT",
+                    "enum": ["DEFAULT", "AU", "BE", "CA", "CH", "DE", "ES", "FR", "GB", "GR", "HU", "ID", "IT", "JP", "MX", "NL", "PT", "ZA", "TR", "US"]
                   },
                   "device": {
                     "type": "string",
