@@ -7,6 +7,10 @@
     "light": "#1DC775",
     "dark": "#1DC775"
   },
+  "fonts": {
+    "familiy": "Montserrat",
+    "source": "https://fonts.googleapis.com/css2?family=Montserrat"
+  },
   "background":{
     "color": {
       "dark": "#303030",
@@ -16,7 +20,7 @@
   "appearance":{
     "default": "dark",
     "strict": true
-  }
+  },
   "favicon": "/images/logo_green.png",
   "navigation": {
     "tabs": [
