@@ -24,11 +24,39 @@
         "type": "object",
         "properties": {
           "id": { "type": "string" },
+          "submitted_url": { "type": "string" },
+          "domain": { "type": "string" },
+          "target_url": { "type": "string" },
+          "protocol": { "type": "string" },
+          "device": {
+            "type": "string",
+            "enum": ["DESKTOP", "MOBILE"]
+          },
+          "user_agent": { "type": "string" },
+          "nsfw": { "type": "boolean" },
+          "scanned_from": {
+            "type": "string",
+            "enum": ["DEFAULT", "AU", "BE", "CA", "CH", "DE", "ES", "FR", "GB", "GR", "HU", "ID", "IT", "JP", "MX", "NL", "PT", "ZA", "TR", "US"]
+          },
+          "origin": {
+            "type": "string",
+            "enum": ["API", "USER"]
+          },
+          "width": { "type": "number" },
+          "height": { "type": "number" },
+          "private_scan": { "type": "boolean" },
           "status": {
             "type": "string",
             "enum": ["PENDING", "RUNNING", "DONE", "ERROR"]
           },
-          "submitted_date": { "type": "string", "format": "date-time" }
+          "submitted_date": { "type": "string", "format": "date-time" },
+          "start_date": { "type": "string", "format": "date-time" },
+          "end_date": { "type": "string", "format": "date-time" },
+          "elapsed_time": { "type": "number" },
+          "submitter_tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
         }
       },
       "ScanResult": {
@@ -52,7 +80,7 @@
           "ip_address": { "type": "object" },
           "malicious": { "type": "object" },
           "page": { "type": "object" },
-          "scan": { "$ref": "#/components/schemas/ScanResult" },
+          "scan": { "$ref": "#/components/schemas/Scan" },
           "scan_feedback": { "type": "object" },
           "scan_whois": { "type": "object" },
           "screenshot": { "type": "string" },
