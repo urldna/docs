@@ -19,7 +19,8 @@
   },
   "fonts": {
     "family": "Montserrat",
-    "source": "https://github.com/JulietaUla/Montserrat/raw/refs/heads/master/fonts/webfonts/Montserrat-Regular.woff2"
+    "source": "https://github.com/JulietaUla/Montserrat/raw/refs/heads/master/fonts/webfonts/Montserrat-Regular.woff2",
+    "weight": 400
   },
   "favicon": "/images/logo_green.png",
   "navigation": {
