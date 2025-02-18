@@ -4,11 +4,11 @@
   "name": "urlDNA - Documentation",
   "colors": {
     "primary": "#1DC775",
-    "light": "#1DC775"
-  },
-  "background": {
-    "light": "#E3E3E3",
-    "dark": "#3f3030"
+    "light": "#1DC775",
+    "background": {
+      "light": "#E3E3E3",
+      "dark": "#3f3030"
+    }
   },
   "favicon": "/images/logo_green.png",
   "navigation": {
