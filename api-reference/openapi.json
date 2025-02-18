@@ -1,790 +1,790 @@
 {
-  "openapi": "3.0.3",
-  "info": {
-    "title": "urlDNA API",
-    "version": "1.0.0",
-    "description": "API documentation for urlDNA"
-  },
-  "servers": [
-    {
-      "url": "https://api.urldna.io",
-      "description": "Base endpoint"
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "Authorization"
-      }
+    "openapi": "3.0.3",
+    "info": {
+        "title": "urlDNA API",
+        "version": "1.0.0",
+        "description": "API documentation for urlDNA"
     },
-    "schemas": {
-      "Viewport": {
-        "type": "object",
-        "description": "Viewport settings for rendering webpages, including device type and dimensions.",
-        "properties": {
-          "device": {
-            "type": "string",
-            "enum": [
-              "DESKTOP",
-              "MOBILE"
-            ],
-            "description": "Type of device used for the viewport."
-          },
-          "width": {
-            "type": "number",
-            "description": "Width of the viewport in pixels."
-          },
-          "height": {
-            "type": "number",
-            "description": "Height of the viewport in pixels."
-          }
+    "servers": [
+        {
+            "url": "https://api.urldna.io",
+            "description": "Base endpoint"
         }
-      },
-      "UserAgent": {
-        "type": "object",
-        "description": "Details about user agents for simulating browser requests.",
-        "properties": {
-          "user_agent": {
-            "type": "string",
-            "description": "User agent string representing the browser or device."
-          },
-          "device": {
-            "type": "string",
-            "enum": [
-              "DESKTOP",
-              "MOBILE"
-            ],
-            "description": "Type of device associated with the user agent."
-          },
-          "browser": {
-            "type": "string",
-            "description": "Name of the browser."
-          },
-          "share": {
-            "type": "number",
-            "description": "Share percentage of this user agent among users."
-          }
-        }
-      },
-      "Scan": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "submitted_url": {
-            "type": "string"
-          },
-          "domain": {
-            "type": "string"
-          },
-          "target_url": {
-            "type": "string"
-          },
-          "protocol": {
-            "type": "string"
-          },
-          "device": {
-            "type": "string",
-            "enum": [
-              "DESKTOP",
-              "MOBILE"
-            ]
-          },
-          "user_agent": {
-            "type": "string"
-          },
-          "nsfw": {
-            "type": "boolean"
-          },
-          "scanned_from": {
-            "type": "string",
-            "enum": [
-              "DEFAULT",
-              "AU",
-              "BE",
-              "CA",
-              "CH",
-              "DE",
-              "ES",
-              "FR",
-              "GB",
-              "GR",
-              "HU",
-              "ID",
-              "IT",
-              "JP",
-              "MX",
-              "NL",
-              "PT",
-              "ZA",
-              "TR",
-              "US"
-            ]
-          },
-          "origin": {
-            "type": "string",
-            "enum": [
-              "API",
-              "USER"
-            ]
-          },
-          "width": {
-            "type": "number"
-          },
-          "height": {
-            "type": "number"
-          },
-          "private_scan": {
-            "type": "boolean"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "PENDING",
-              "RUNNING",
-              "DONE",
-              "ERROR"
-            ]
-          },
-          "submitted_date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "submitter_tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
+    ],
+    "components": {
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization"
             }
-          }
-        }
-      },
-      "Certificate": {
-        "type": "object",
-        "properties": {
-          "authority_info_access": {
-            "type": "string"
-          },
-          "authority_key_identifier": {
-            "type": "string"
-          },
-          "basic_constraints": {
-            "type": "string"
-          },
-          "certificate_policies": {
-            "type": "string"
-          },
-          "ct_precert_scts": {
-            "type": "string"
-          },
-          "extended_key_usage": {
-            "type": "string"
-          },
-          "issuer": {
-            "type": "string"
-          },
-          "key_usage": {
-            "type": "string"
-          },
-          "not_after": {
-            "type": "string"
-          },
-          "not_before": {
-            "type": "string"
-          },
-          "serial_number": {
-            "type": "string"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "subject_key_identifier": {
-            "type": "string"
-          },
-          "version": {
-            "type": "number"
-          }
-        }
-      },
-      "Certificate": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        }
-      },
-      "Cookie": {
-        "type": "object",
-        "properties": {
-          "domain": {
-            "type": "string"
-          },
-          "expiry": {
-            "type": "string"
-          },
-          "http_only": {
-            "type": "boolean"
-          },
-          "name": {
-            "type": "string"
-          },
-          "path": {
-            "type": "string"
-          },
-          "secure": {
-            "type": "boolean"
-          },
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "Favicon": {
-        "type": "object",
-        "properties": {
-          "blob_uri": {
-            "type": "string"
-          },
-          "format": {
-            "type": "string"
-          },
-          "height": {
-            "type": "number"
-          },
-          "mimetype": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "phash": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "width": {
-            "type": "number"
-          }
-        }
-      },
-      "HttpTransaction": {
-        "type": "object",
-        "properties": {
-          "content_type": {
-            "type": "string"
-          },
-          "ip": {
-            "type": "string"
-          },
-          "method": {
-            "type": "string"
-          },
-          "mimetypes": {
-            "type": "string"
-          },
-          "size": {
-            "type": "number"
-          },
-          "status_code": {
-            "type": "number"
-          },
-          "url": {
-            "type": "string"
-          }
-        }
-      },
-      "IpAddress": {
-        "type": "object",
-        "properties": {
-          "asn": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "country_code": {
-            "type": "string"
-          },
-          "isp": {
-            "type": "string"
-          },
-          "isp": {
-            "type": "string"
-          },
-          "latitude": {
-            "type": "number"
-          },
-          "longitude": {
-            "type": "number"
-          },
-          "org": {
-            "type": "string"
-          },
-          "region": {
-            "type": "string"
-          },
-          "timezone_gmt": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        }
-      },
-      "Malicious": {
-        "type": "object",
-        "properties": {
-          "malicious": {
-            "type": "boolean"
-          },
-          "threat": {
-            "type": "string",
-            "enum": [
-              "SCAM",
-              "SOCIAL_ENGINEERING",
-              "SCAM"
-            ]
-          }
-        }
-      },
-      "Page": {
-        "type": "object",
-        "properties": {
-          "headers": {
-            "type": "object"
-          },
-          "meta_tags": {
-            "type": "object"
-          },
-          "outgoing_links": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "ssdeep": {
-            "type": "string"
-          },
-          "text": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          }
-        }
-      },
-      "ScanFeedback": {
-        "type": "object",
-        "properties": {
-          "malicious_count": {
-            "type": "number"
-          },
-          "safe_count": {
-            "type": "number"
-          }
-        }
-      },
-      "ScanWhois": {
-        "type": "object",
-        "properties": {
-          "address": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "creation_date": {
-            "type": "string"
-          },
-          "domain_name": {
-            "type": "string"
-          },
-          "expiration_date": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "org": {
-            "type": "string"
-          },
-          "registrant_postal_code": {
-            "type": "string"
-          },
-          "registrar": {
-            "type": "string"
-          },
-          "state": {
-            "type": "string"
-          },
-          "updated_date": {
-            "type": "string"
-          }
-        }
-      },
-      "Screenshot": {
-        "type": "object",
-        "properties": {
-          "blob_uri": {
-            "type": "string"
-          },
-          "format": {
-            "type": "string"
-          },
-          "height": {
-            "type": "number"
-          },
-          "mimetype": {
-            "type": "string"
-          },
-          "phash": {
-            "type": "string"
-          },
-          "width": {
-            "type": "number"
-          }
-        }
-      },
-      "Technology": {
-        "type": "object",
-        "properties": {
-          "category": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          }
-        }
-      },
-      "ScanResult": {
-        "type": "object",
-        "properties": {
-          "certificate": {
-            "$ref": "#/components/schemas/Certificate"
-          },
-          "console_messages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsoleMessage"
-            }
-          },
-          "cookies": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Cookie"
-            }
-          },
-          "dom": {
-            "type": "string"
-          },
-          "favicon": {
-            "$ref": "#/components/schemas/Favicon"
-          },
-          "http_transactions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/HttpTransaction"
-            }
-          },
-          "ip_address": {
-            "$ref": "#/components/schemas/IpAddress"
-          },
-          "malicious": {
-            "$ref": "#/components/schemas/Malicious"
-          },
-          "page": {
-            "$ref": "#/components/schemas/Page"
-          },
-          "scan": {
-            "$ref": "#/components/schemas/Scan"
-          },
-          "scan_feedback": {
-            "$ref": "#/components/schemas/ScanFeedback"
-          },
-          "scan_whois": {
-            "$ref": "#/components/schemas/ScanWhois"
-          },
-          "screenshot": {
-            "$ref": "#/components/schemas/Screenshot"
-          },
-          "technologies": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Technology"
-            }
-          }
-        }
-      }
-    }
-  },
-  "security": [
-    {
-      "ApiKeyAuth": []
-    }
-  ],
-  "paths": {
-    "/scan/{id}": {
-      "get": {
-        "summary": "Get Scan Result",
-        "description": "Retrieve information about a specific scan",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Scan result retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ScanResult"
+        },
+        "schemas": {
+            "Viewport": {
+                "type": "object",
+                "description": "Viewport settings for rendering webpages, including device type and dimensions.",
+                "properties": {
+                    "device": {
+                        "type": "string",
+                        "enum": [
+                            "DESKTOP",
+                            "MOBILE"
+                        ],
+                        "description": "Type of device used for the viewport."
+                    },
+                    "width": {
+                        "type": "number",
+                        "description": "Width of the viewport in pixels."
+                    },
+                    "height": {
+                        "type": "number",
+                        "description": "Height of the viewport in pixels."
+                    }
                 }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/scan": {
-      "post": {
-        "summary": "Submit a New Scan",
-        "description": "Submit a new scan request",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
+            },
+            "UserAgent": {
+                "type": "object",
+                "description": "Details about user agents for simulating browser requests.",
+                "properties": {
+                    "user_agent": {
+                        "type": "string",
+                        "description": "User agent string representing the browser or device."
+                    },
+                    "device": {
+                        "type": "string",
+                        "enum": [
+                            "DESKTOP",
+                            "MOBILE"
+                        ],
+                        "description": "Type of device associated with the user agent."
+                    },
+                    "browser": {
+                        "type": "string",
+                        "description": "Name of the browser."
+                    },
+                    "share": {
+                        "type": "number",
+                        "description": "Share percentage of this user agent among users."
+                    }
+                }
+            },
+            "Scan": {
                 "type": "object",
                 "properties": {
-                  "submitted_url": {
-                    "type": "string"
-                  },
-                  "scanned_from": {
-                    "type": "string",
-                    "default": "DEFAULT",
-                    "enum": [
-                      "DEFAULT",
-                      "AU",
-                      "BE",
-                      "CA",
-                      "CH",
-                      "DE",
-                      "ES",
-                      "FR",
-                      "GB",
-                      "GR",
-                      "HU",
-                      "ID",
-                      "IT",
-                      "JP",
-                      "MX",
-                      "NL",
-                      "PT",
-                      "ZA",
-                      "TR",
-                      "US"
-                    ]
-                  },
-                  "device": {
-                    "type": "string",
-                    "enum": [
-                      "DESKTOP",
-                      "MOBILE"
-                    ],
-                    "default": "DESKTOP"
-                  },
-                  "user_agent": {
-                    "type": "string"
-                  },
-                  "width": {
-                    "type": "integer",
-                    "default": 1920
-                  },
-                  "height": {
-                    "type": "integer",
-                    "default": 1080
-                  },
-                  "waiting_time": {
-                    "type": "integer",
-                    "default": 5
-                  },
-                  "private_scan": {
-                    "type": "boolean",
-                    "default": false
-                  }
-                },
-                "required": [
-                  "submitted_url"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Scan created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Scan"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/search": {
-      "post": {
-        "summary": "Search Scans",
-        "description": "Search for existing scans using query or CQL",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "query": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "query"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Search results",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Scan"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/fast-check": {
-      "post": {
-        "summary": "Fast Check URL",
-        "description": "Check if a URL is CLEAN or MALICIOUS",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "url": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "url"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Fast check result",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "malicious_score": {
-                      "type": "number"
+                    "id": {
+                        "type": "string"
+                    },
+                    "submitted_url": {
+                        "type": "string"
+                    },
+                    "domain": {
+                        "type": "string"
+                    },
+                    "target_url": {
+                        "type": "string"
+                    },
+                    "protocol": {
+                        "type": "string"
+                    },
+                    "device": {
+                        "type": "string",
+                        "enum": [
+                            "DESKTOP",
+                            "MOBILE"
+                        ]
+                    },
+                    "user_agent": {
+                        "type": "string"
+                    },
+                    "nsfw": {
+                        "type": "boolean"
+                    },
+                    "scanned_from": {
+                        "type": "string",
+                        "enum": [
+                            "DEFAULT",
+                            "AU",
+                            "BE",
+                            "CA",
+                            "CH",
+                            "DE",
+                            "ES",
+                            "FR",
+                            "GB",
+                            "GR",
+                            "HU",
+                            "ID",
+                            "IT",
+                            "JP",
+                            "MX",
+                            "NL",
+                            "PT",
+                            "ZA",
+                            "TR",
+                            "US"
+                        ]
+                    },
+                    "origin": {
+                        "type": "string",
+                        "enum": [
+                            "API",
+                            "USER"
+                        ]
+                    },
+                    "width": {
+                        "type": "number"
+                    },
+                    "height": {
+                        "type": "number"
+                    },
+                    "private_scan": {
+                        "type": "boolean"
                     },
                     "status": {
-                      "type": "string",
-                      "enum": [
-                        "CLEAN",
-                        "MALICIOUS",
-                        "UNRATED"
-                      ]
+                        "type": "string",
+                        "enum": [
+                            "PENDING",
+                            "RUNNING",
+                            "DONE",
+                            "ERROR"
+                        ]
+                    },
+                    "submitted_date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "submitter_tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "Certificate": {
+                "type": "object",
+                "properties": {
+                    "authority_info_access": {
+                        "type": "string"
+                    },
+                    "authority_key_identifier": {
+                        "type": "string"
+                    },
+                    "basic_constraints": {
+                        "type": "string"
+                    },
+                    "certificate_policies": {
+                        "type": "string"
+                    },
+                    "ct_precert_scts": {
+                        "type": "string"
+                    },
+                    "extended_key_usage": {
+                        "type": "string"
+                    },
+                    "issuer": {
+                        "type": "string"
+                    },
+                    "key_usage": {
+                        "type": "string"
+                    },
+                    "not_after": {
+                        "type": "string"
+                    },
+                    "not_before": {
+                        "type": "string"
+                    },
+                    "serial_number": {
+                        "type": "string"
+                    },
+                    "subject": {
+                        "type": "string"
+                    },
+                    "subject_key_identifier": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "number"
+                    }
+                }
+            },
+            "ConsoleMessage": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Cookie": {
+                "type": "object",
+                "properties": {
+                    "domain": {
+                        "type": "string"
+                    },
+                    "expiry": {
+                        "type": "string"
+                    },
+                    "http_only": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "secure": {
+                        "type": "boolean"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Favicon": {
+                "type": "object",
+                "properties": {
+                    "blob_uri": {
+                        "type": "string"
+                    },
+                    "format": {
+                        "type": "string"
+                    },
+                    "height": {
+                        "type": "number"
+                    },
+                    "mimetype": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "phash": {
+                        "type": "string"
                     },
                     "url": {
-                      "type": "string"
+                        "type": "string"
+                    },
+                    "width": {
+                        "type": "number"
                     }
-                  }
                 }
-              }
+            },
+            "HttpTransaction": {
+                "type": "object",
+                "properties": {
+                    "content_type": {
+                        "type": "string"
+                    },
+                    "ip": {
+                        "type": "string"
+                    },
+                    "method": {
+                        "type": "string"
+                    },
+                    "mimetypes": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "number"
+                    },
+                    "status_code": {
+                        "type": "number"
+                    },
+                    "url": {
+                        "type": "string"
+                    }
+                }
+            },
+            "IpAddress": {
+                "type": "object",
+                "properties": {
+                    "asn": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "country_code": {
+                        "type": "string"
+                    },
+                    "ip": {
+                        "type": "string"
+                    },
+                    "isp": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "number"
+                    },
+                    "longitude": {
+                        "type": "number"
+                    },
+                    "org": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "timezone_gmt": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Malicious": {
+                "type": "object",
+                "properties": {
+                    "malicious": {
+                        "type": "boolean"
+                    },
+                    "threat": {
+                        "type": "string",
+                        "enum": [
+                            "SCAM",
+                            "SOCIAL_ENGINEERING",
+                            "SCAM"
+                        ]
+                    }
+                }
+            },
+            "Page": {
+                "type": "object",
+                "properties": {
+                    "headers": {
+                        "type": "object"
+                    },
+                    "meta_tags": {
+                        "type": "object"
+                    },
+                    "outgoing_links": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "ssdeep": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ScanFeedback": {
+                "type": "object",
+                "properties": {
+                    "malicious_count": {
+                        "type": "number"
+                    },
+                    "safe_count": {
+                        "type": "number"
+                    }
+                }
+            },
+            "ScanWhois": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "creation_date": {
+                        "type": "string"
+                    },
+                    "domain_name": {
+                        "type": "string"
+                    },
+                    "expiration_date": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "org": {
+                        "type": "string"
+                    },
+                    "registrant_postal_code": {
+                        "type": "string"
+                    },
+                    "registrar": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "updated_date": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Screenshot": {
+                "type": "object",
+                "properties": {
+                    "blob_uri": {
+                        "type": "string"
+                    },
+                    "format": {
+                        "type": "string"
+                    },
+                    "height": {
+                        "type": "number"
+                    },
+                    "mimetype": {
+                        "type": "string"
+                    },
+                    "phash": {
+                        "type": "string"
+                    },
+                    "width": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Technology": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ScanResult": {
+                "type": "object",
+                "properties": {
+                    "certificate": {
+                        "$ref": "#/components/schemas/Certificate"
+                    },
+                    "console_messages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConsoleMessage"
+                        }
+                    },
+                    "cookies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Cookie"
+                        }
+                    },
+                    "dom": {
+                        "type": "string"
+                    },
+                    "favicon": {
+                        "$ref": "#/components/schemas/Favicon"
+                    },
+                    "http_transactions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HttpTransaction"
+                        }
+                    },
+                    "ip_address": {
+                        "$ref": "#/components/schemas/IpAddress"
+                    },
+                    "malicious": {
+                        "$ref": "#/components/schemas/Malicious"
+                    },
+                    "page": {
+                        "$ref": "#/components/schemas/Page"
+                    },
+                    "scan": {
+                        "$ref": "#/components/schemas/Scan"
+                    },
+                    "scan_feedback": {
+                        "$ref": "#/components/schemas/ScanFeedback"
+                    },
+                    "scan_whois": {
+                        "$ref": "#/components/schemas/ScanWhois"
+                    },
+                    "screenshot": {
+                        "$ref": "#/components/schemas/Screenshot"
+                    },
+                    "technologies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Technology"
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     },
-    "/user-agents": {
-      "get": {
-        "summary": "Get User Agents",
-        "description": "Retrieve a list of available user agents",
-        "responses": {
-          "200": {
-            "description": "List of user agents",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserAgent"
-                  }
-                }
-              }
-            }
-          }
+    "security": [
+        {
+            "ApiKeyAuth": []
         }
-      }
-    },
-    "/viewports": {
-      "get": {
-        "summary": "Get Viewports",
-        "description": "Retrieve a list of available viewports",
-        "responses": {
-          "200": {
-            "description": "List of viewports",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Viewport"
-                  }
+    ],
+    "paths": {
+        "/scan/{id}": {
+            "get": {
+                "summary": "Get Scan Result",
+                "description": "Retrieve information about a specific scan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Scan result retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ScanResult"
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
+        },
+        "/scan": {
+            "post": {
+                "summary": "Submit a New Scan",
+                "description": "Submit a new scan request",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "submitted_url": {
+                                        "type": "string"
+                                    },
+                                    "scanned_from": {
+                                        "type": "string",
+                                        "default": "DEFAULT",
+                                        "enum": [
+                                            "DEFAULT",
+                                            "AU",
+                                            "BE",
+                                            "CA",
+                                            "CH",
+                                            "DE",
+                                            "ES",
+                                            "FR",
+                                            "GB",
+                                            "GR",
+                                            "HU",
+                                            "ID",
+                                            "IT",
+                                            "JP",
+                                            "MX",
+                                            "NL",
+                                            "PT",
+                                            "ZA",
+                                            "TR",
+                                            "US"
+                                        ]
+                                    },
+                                    "device": {
+                                        "type": "string",
+                                        "enum": [
+                                            "DESKTOP",
+                                            "MOBILE"
+                                        ],
+                                        "default": "DESKTOP"
+                                    },
+                                    "user_agent": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer",
+                                        "default": 1920
+                                    },
+                                    "height": {
+                                        "type": "integer",
+                                        "default": 1080
+                                    },
+                                    "waiting_time": {
+                                        "type": "integer",
+                                        "default": 5
+                                    },
+                                    "private_scan": {
+                                        "type": "boolean",
+                                        "default": false
+                                    }
+                                },
+                                "required": [
+                                    "submitted_url"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Scan created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Scan"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/search": {
+            "post": {
+                "summary": "Search Scans",
+                "description": "Search for existing scans using query or CQL",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "query": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "query"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Search results",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Scan"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/fast-check": {
+            "post": {
+                "summary": "Fast Check URL",
+                "description": "Check if a URL is CLEAN or MALICIOUS",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Fast check result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "malicious_score": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "CLEAN",
+                                                "MALICIOUS",
+                                                "UNRATED"
+                                            ]
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user-agents": {
+            "get": {
+                "summary": "Get User Agents",
+                "description": "Retrieve a list of available user agents",
+                "responses": {
+                    "200": {
+                        "description": "List of user agents",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UserAgent"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/viewports": {
+            "get": {
+                "summary": "Get Viewports",
+                "description": "Retrieve a list of available viewports",
+                "responses": {
+                    "200": {
+                        "description": "List of viewports",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Viewport"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }
