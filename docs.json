@@ -77,7 +77,7 @@
   "modeToggle": {
     "default": "dark",
     "isHidden": true
-  }
+  },
   "navbar": {
     "primary": {
       "type": "button",
