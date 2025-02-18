@@ -7,7 +7,7 @@
     "light": "#07C983",
     "dark": "#303030"
   },
-  "favicon": "/favicon.ico",
+  "favicon": "/images/logo_green.png",
   "navigation": {
     "tabs": [
       {
@@ -72,6 +72,10 @@
     "light": "/images/logo_green.png",
     "dark": "/images/logo_green.png"
   },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  }
   "navbar": {
     "primary": {
       "type": "button",
