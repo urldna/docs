@@ -8,7 +8,7 @@
     "dark": "#1DC775"
   },
   "styling": {
-    "background": {
+    "backgroundColor": {
       "color": {
         "light": "#E3E3E3",
         "dark": "#3f3030"
