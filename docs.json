@@ -50,8 +50,8 @@
     ]
   },
   "logo": {
-    "light": "/logo_green.png",
-    "dark": "/logo_green.png"
+    "light": "/images/urldna_green.png",
+    "dark": "/images/urldna_green.png"
   },
   "navbar": {
     "primary": {
