@@ -46,12 +46,31 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Use Cases",
+        "groups": [
+          {
+            "group": "Use Cases",
+            "pages": [
+              "use-cases/introduction"
+            ]
+          },
+          {
+            "group": "Examples",
+            "pages": [
+              "use-cases/cyber-threat-intelligence",
+              "use-cases/security-operation-center-integration",
+              "use-cases/brand-monitoring"
+            ]
+          }
+        ]
       }
     ]
   },
   "logo": {
-    "light": "/images/urldna_green.png",
-    "dark": "/images/urldna_green.png"
+    "light": "/images/logo_green.png",
+    "dark": "/images/logo_green.png"
   },
   "navbar": {
     "primary": {
