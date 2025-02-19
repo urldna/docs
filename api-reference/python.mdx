@@ -1,4 +1,45 @@
 ---
 title: 'Python Package'
-description: 'Example section for showcasing API endpoints'
+description: 'The urlDNA Python package allows you to interact with the URLDNA API for scanning and analyzing URLs. With this package, you can retrieve scan results, extract metadata, and detect potential threats.
+'
 ---
+
+## Installation
+
+Install the package using `pip`:
+
+```sh
+pip install urldna
+```
+
+## Basic Usage
+
+```python
+from urldna import UrlDNA
+
+# Initialize the client with your API key (available in your profile)
+api_key = '<YOUR_API_KEY>'
+client = UrlDNA(api_key)
+
+# Create a scan for a URL
+url = 'https://urldna.io'
+scan_result = client.create_scan(url)
+
+# Print various scan results
+print(scan_result.cookies)          # List of all cookies found on the webpage
+print(scan_result.dom)              # Complete HTML source code
+print(scan_result.favicon)          # Favicon details including hash and URL
+print(scan_result.http_transactions) # List of all HTTP transactions
+print(scan_result.ip_address)       # IP address details of the URL
+print(scan_result.scan_whois)       # WHOIS information
+print(scan_result.malicious)        # Indicates if the URL may be malicious (beta feature)
+print(scan_result.page)             # Extracted meta tags, headers, and text content
+print(scan_result.screenshot)       # Screenshot URL of the scanned webpage
+print(scan_result.technologies)     # List of detected technologies
+```
+
+## Additional Resources
+
+* [PyPI](https://pypi.org/project/urlDNA/).
+
+* [GitHub](https://github.com/urldna/urldna).
