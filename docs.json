@@ -49,21 +49,21 @@
           {
             "group": "API Documentation",
             "pages": [
-              "api/introduction",
-              "api/authentication",
-              "api/python"
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/python"
             ]
           },
           {
             "group": "Endpoints",
             "pages": [
-              "api/endpoint/create-scan",
-              "api/endpoint/get-scan",
-              "api/endpoint/search",
-              "api/endpoint/fast-check",
-              "api/endpoint/scan-feedback",
-              "api/endpoint/user-agent",
-              "api/endpoint/viewport"
+              "api-reference/endpoint/create-scan",
+              "api-reference/endpoint/get-scan",
+              "api-reference/endpoint/search",
+              "api-reference/endpoint/fast-check",
+              "api-reference/endpoint/scan-feedback",
+              "api-reference/endpoint/user-agent",
+              "api-reference/endpoint/viewport"
             ]
           }
         ]
