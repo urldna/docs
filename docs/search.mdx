@@ -1,5 +1,138 @@
 ---
 title: 'Search'
-description: 'Description of your new file.'
 ---
 
+# Search Function
+
+## Overview
+
+The URLDNA search feature leverages a powerful **Custom Query Language (CQL)** to help you find relevant scan results quickly and efficiently. With CQL, you can craft precise queries using multiple attributes and operators, allowing for flexible and targeted searches.
+
+### Why Use CQL?
+
+* **Precision**: Find exactly what you're looking for with attribute-based searches.
+
+* **Flexibility**: Combine multiple conditions to refine results.
+
+* **Efficiency**: Reduce search time by narrowing down results.
+
+## CQL Syntax
+
+A CQL query follows a simple format:
+
+```
+ATTRIBUTE OPERATOR VALUE
+```
+
+For example:
+
+```
+title LIKE facebook
+```
+
+This query finds results where the page title contains "facebo".
+
+## Searchable Attributes
+
+Here are the key attributes you can use in your queries:
+
+* `id`: Scan ID (e.g., `660d0...`)
+
+* `domain`: Scan domain name (e.g., `"google.com"`)
+
+* `submitted_url`: Submitted URL for the scan (e.g., `"https://www.google.com/search"`)
+
+* `nsfw`: Flag for adult content (`true/false`)
+
+* `target_url`: Redirected URL after the initial scan
+
+* `device`: Device used (`MOBILE/DESKTOP`)
+
+* `user_agent`: Web browser user agent string
+
+* `scanned_from`: Country from which the scan was made
+
+* `submitter_tag`: User submitter tags
+
+* `origin`: Source of the scan (`USER/API/TELEGRAM`)
+
+* `title`: Page title
+
+* `ip`: IP address used to access the website
+
+* `org`: Organization associated with the IP
+
+* `isp`: Internet Service Provider for the IP
+
+* `asn`: Autonomous System Number associated with the IP
+
+* `city`: City associated with the IP
+
+* `http_transaction`: HTTP transactions URL
+
+* `outgoing_link`: Page outgoing link
+
+* `country_code`: Country code associated with the IP
+
+* `favicon`: Hash of the website's favicon image
+
+* `screenshot`: Hash of the website's screenshot
+
+* `registrar`: Whois registrar attribute
+
+* `serial_number`: Certificate serial number (for SSL certificates)
+
+* `issuer`: Certificate issuer (for SSL certificates)
+
+* `subject`: Certificate subject (for SSL certificates)
+
+* `malicious`: Flag for malicious website (`true/false`)
+
+* `technology`: Technologies used by the website
+
+* `cookie_name`: Name of a specific cookie found on the website
+
+* `cookie_value`: Value of a specific cookie found on the website
+
+## Operators
+
+Use the following operators to refine your searches:
+
+| Operator | Description                           | Example                     |
+| -------- | ------------------------------------- | --------------------------- |
+| `=`      | Matches exact values                  | `domain = "www.google.com"` |
+| `!=`     | Excludes specific values              | `domain != "facebook.com"`  |
+| `LIKE`   | Partial match based on a pattern      | `title LIKE "Login"`        |
+| `!LIKE`  | Excludes results containing a pattern | `domain !LIKE "amazon"`     |
+
+## Combining Conditions
+
+You can use the `AND` keyword to combine multiple conditions:
+
+```
+domain = "www.google.com" AND title LIKE "search"
+```
+
+This query finds scans associated with "google.com" where the title contains the word "search".
+
+## Examples
+
+### Find all scans from mobile devices in Italy:
+
+```
+device = MOBILE AND country_code = IT
+```
+
+### Identify scans where the favicon hash matches a specific value:
+
+```
+favicon LIKE d417e43...
+```
+
+### Locate all non-malicious websites using WordPress:
+
+```
+malicious = false AND technology LIKE "wordpress"
+```
+
+By leveraging the URLDNA search function, you can efficiently retrieve relevant scan data, filter results, and gain deeper insights into potential threats or patterns.
