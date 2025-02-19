@@ -1,0 +1,53 @@
+---
+title: 'My Queries'
+---
+
+<Info>Available only for authenticated users.</Info>
+
+## Overview
+
+The **My Query** feature in urlDNA allows authenticated users to save and recover custom queries. This enables users to efficiently store frequently used search filters and retrieve them later without re-entering the criteria manually.
+
+## Creating a My Query
+
+Users can create a My Query by defining the following parameters:
+
+* **Query Name**: A unique name to identify the saved query.
+
+* **Filters**: Users can add one or more filters to define search criteria.
+
+**Filter Structure**
+
+Each filter consists of:
+
+* **Attribute**: A selectable list of all searchable attributes.
+
+* **Operator**: Defines the matching condition, which can be:
+
+  * `=` (equals)
+
+  * `!=` (not equals)
+
+  * `LIKE` (contains)
+
+  * `!LIKE` (does not contain)
+
+* **Value**: The input value to match against the selected attribute.
+
+Filters within a My Query are combined using a **logical AND** operator, meaning all conditions must be met for a result to be returned.
+
+## Managing My Queries
+
+Users can:
+
+* Add new filters to an existing My Query.
+
+* Remove filters from a My Query.
+
+* Update the name of a My Query.
+
+* Delete saved queries when no longer needed.
+
+## Quick Action: Save Search as My Query
+
+A quick way to generate a My Query is from the **Search** page. After performing a search, users can save the current search filters as a new My Query for future use.
