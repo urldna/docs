@@ -2,6 +2,29 @@
 title: 'Scan'
 ---
 
+## Overview
+
+The **Scan** object represents a comprehensive view of a scanned webpage, including metadata, status, and other relevant attributes. This page details the scan lifecycle and attributes, both for newly created scans and completed scan results.
+
+## Scan Lifecycle
+
+When a new scan is created, it follows these status transitions:
+
+```mermaid
+graph TD;
+    PENDING -->|Queued for processing| RUNNING;
+    RUNNING -->|Processing complete| DONE;
+    RUNNING -->|Connection issues| ERROR;
+```
+
+* **PENDING**: The scan is waiting in the queue.
+
+* **RUNNING**: The scan is being processed.
+
+* **DONE**: The scan has completed successfully, and all attributes are available.
+
+* **ERROR**: There was a connection issue, preventing the scan from completing.
+
 ## New Scan
 
 When creating a new scan, several attributes can be configured to customize the scanning process:

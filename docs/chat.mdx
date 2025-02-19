@@ -3,3 +3,58 @@ title: 'AI Playground'
 description: 'Description of your new file.'
 ---
 
+<Warning>Available only for PREMIUM users.</Warning>
+
+## Overview
+The **urlDNA AI Playground** is an advanced AI-powered feature that allows users to interact with scan results using natural language queries. This functionality is available exclusively to **premium users**, who can send up to **5 requests per day**.
+
+## Features
+- **AI-Powered Chat:** Users can ask questions in human language about a scan, and the engine will respond accordingly.
+- **Custom Response Format:** By default, responses are provided in **Markdown format**.
+- **JSON Template Support:** Users can specify a valid JSON response template, and the engine will populate it with relevant scan information.
+
+
+## JSON Output Template
+When requesting JSON output, users must provide a valid template. The AI Engine will then populate the template with the relevant scan data. An example template is:
+
+```json
+{
+    "summary": "page text summary",
+    "domain": "domain name",
+    "url": "scan URL",
+    "safe": "true if page is safe otherwise false"
+}
+```
+
+## Examples
+Users can interact with the AI Playground using various types of queries, such as:
+
+1. **General Explanation**
+```plaintext
+Explain me why this scan is malicious.
+```
+
+2. **Structured Data Extraction**
+```plaintext
+Extract results using template.
+```
+```json
+{
+    "summary": "page text summary",
+    "domain": "domain name",
+    "url": "scan URL",
+    "safe": "true if page is safe otherwise false"
+}
+```
+
+## Usage Guidelines
+- Only **premium users** have access to this feature.
+- Each user is limited to **5 requests per day**.
+- Ensure that the JSON response template provided is **valid** and **well-formed** to receive structured output.
+
+## How It Works
+1. The user submits a query related to a scan.
+2. The **urlDNA AI Engine** processes the request and extracts relevant insights.
+3. The engine responds in Markdown by default or fills the provided JSON template with scan-related information.
+
+
