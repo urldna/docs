@@ -75,12 +75,6 @@
           {
             "group": "Use Cases",
             "pages": [
-              "use-cases/introduction"
-            ]
-          },
-          {
-            "group": "Examples",
-            "pages": [
               "use-cases/cyber-threat-intelligence",
               "use-cases/security-operation-center-integration",
               "use-cases/brand-monitoring"
