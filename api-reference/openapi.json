@@ -709,7 +709,7 @@
                                             "ES", "FR", "GB", "GR", "HU", "ID", "IT",
                                             "JP", "MX", "NL", "PT", "ZA", "TR", "US"
                                         ],
-                                        "description": "Geographic location from which the scan will be performed."
+                                        "description": "The country from which the scan was initiated. Available only for PREMIUM users."
                                     },
                                     "device": {
                                         "type": "string",
@@ -719,17 +719,17 @@
                                     },
                                     "user_agent": {
                                         "type": "string",
-                                        "description": "Custom user agent string for the scan request."
+                                        "description": "Custom user agent string for the scan request. See User Agents endpoints."
                                     },
                                     "width": {
                                         "type": "integer",
                                         "default": 1920,
-                                        "description": "Viewport width in pixels."
+                                        "description": "Viewport width in pixels. See Viewports endpoints."
                                     },
                                     "height": {
                                         "type": "integer",
                                         "default": 1080,
-                                        "description": "Viewport height in pixels."
+                                        "description": "Viewport height in pixels. See Viewports endpoints."
                                     },
                                     "waiting_time": {
                                         "type": "integer",
@@ -841,6 +841,56 @@
                                         "url": {
                                             "type": "string",
                                             "description": "The scanned URL."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/scan/{id}/feedback": {
+            "post": {
+                "summary": "Submit Scan Verdict Feedback",
+                "description": "Provide feedback on the scan verdict. The feedback can either classify the scan as MALICIOUS or SAFE.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "attribute": {
+                                        "type": "string",
+                                        "enum": ["SAFE", "MALICIOUS"],
+                                        "description": "User's classification of the scan result."
+                                    }
+                                },
+                                "required": ["attribute"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Feedback successfully recorded.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "malicious_count": {
+                                            "type": "number",
+                                            "description": "Total number of users who classified this scan as MALICIOUS."
+                                        },
+                                        "safe_count": {
+                                            "type": "number",
+                                            "description": "Total number of users who classified this scan as SAFE."
+                                        },
+                                        "user_feedback": {
+                                            "type": "string",
+                                            "description": "The user's specific feedback, or null if none was provided."
                                         }
                                     }
                                 }
