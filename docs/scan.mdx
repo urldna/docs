@@ -1,36 +1,26 @@
 ---
 title: 'Scan'
-description: 'Display inline code and code blocks'
 ---
 
-## Basic
+## Overview
 
-### Inline Code
+The **Scan** object represents a comprehensive view of a scanned webpage, including metadata, status, and other relevant attributes. This page details the scan lifecycle and attributes, both for newly created scans and completed scan results.
 
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
+## Scan Lifecycle
 
-```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+When a new scan is created, it follows these status transitions:
 
-### Code Block
-
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
-
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
+```mermaid
+graph TD;
+    PENDING -->|Queued for processing| RUNNING;
+    RUNNING -->|Processing complete| DONE;
+    RUNNING -->|Connection issues| ERROR;
 ```
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-````
+* **PENDING**: The scan is waiting in the queue.
+
+* **RUNNING**: The scan is being processed.
+
+* **DONE**: The scan has completed successfully, and all attributes are available.
+
+* **ERROR**: There was a connection issue, preventing the scan from completing.
