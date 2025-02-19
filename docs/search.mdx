@@ -6,7 +6,7 @@ title: 'Search'
 
 The urlDNA search feature leverages a powerful **Custom Query Language (CQL)** to help you find relevant scan results quickly and efficiently. With CQL, you can craft precise queries using multiple attributes and operators, allowing for flexible and targeted searches.
 
-### Why Use CQL?
+## Why Use CQL?
 
 * **Precision**: Find exactly what you're looking for with attribute-based searches.
 
@@ -98,17 +98,17 @@ Use the following operators to refine your searches:
 
 | Operator | Description                           | Example                     |
 | -------- | ------------------------------------- | --------------------------- |
-| `=`      | Matches exact values                  | `domain = "www.google.com"` |
-| `!=`     | Excludes specific values              | `domain != "facebook.com"`  |
-| `LIKE`   | Partial match based on a pattern      | `title LIKE "Login"`        |
-| `!LIKE`  | Excludes results containing a pattern | `domain !LIKE "amazon"`     |
+| `=`      | Matches exact values                  | `domain = www.google.com`   |
+| `!=`     | Excludes specific values              | `domain != facebook.com`    |
+| `LIKE`   | Partial match based on a pattern      | `title LIKE Login`          |
+| `!LIKE`  | Excludes results containing a pattern | `domain !LIKE amazon`       |
 
 ## Combining Conditions
 
 You can use the `AND` keyword to combine multiple conditions:
 
 ```
-domain = "www.google.com" AND title LIKE "search"
+domain = www.google.com AND title LIKE search
 ```
 
 This query finds scans associated with "google.com" where the title contains the word "search".
@@ -130,7 +130,7 @@ favicon LIKE d417e43...
 Locate all non-malicious websites using WordPress:
 
 ```
-malicious = false AND technology LIKE "wordpress"
+malicious = false AND technology LIKE wordpress
 ```
 
 By leveraging the urlDNA search function, you can efficiently retrieve relevant scan data, filter results, and gain deeper insights into potential threats or patterns.
