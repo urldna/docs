@@ -87,6 +87,16 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "pages": [
+              "integrations/integrations"
+            ]
+          }
+        ]
       }
     ]
   },
