@@ -11,16 +11,16 @@ The urlDNA Takedown feature is available exclusively to premium users. It allows
 ```mermaid
 graph TD;
     A[Recent Scans] -->|Select Scan| B{Action?}
-    B -->|Ignore| C[Ignored Cases]
+    B -->|Ignore| C[Ignored Scan]
     B -->|Start Takedown| D[Initiate Takedown]
     D --> E[IP Abuse Report]
     D --> F[Domain Abuse Report]
     D --> G[Google Safe Browsing Report]
-    E & F & G --> H[Case Status: Open]
-    H --> I[View Takedown Info on Scan Page]
+    E & F & G --> H[Takedown Case Status: Open]
+    H --> I[View Takedown Case on Scan Page]
     I --> J[Rescan URL]
-    J -->|URL Inaccessible/Taken Down| K[Close Takedown]
-    K --> L[Closed Cases]
+    J -->|URL Inaccessible/Taken Down| K[Close Takedown Case]
+    K --> L[Closed Takedown Case]
     J -->|URL Still Active| H
 ```
 
