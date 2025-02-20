@@ -25,7 +25,7 @@
   },
   "favicon": "/images/favicon.ico",
   "seo": {
-      "indexing": all
+      "indexing": "all"
   },
   "navigation": {
     "tabs": [
