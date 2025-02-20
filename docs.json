@@ -23,7 +23,10 @@
     "default": "dark",
     "strict": true
   },
-  "favicon": "/images/logo_green.png",
+  "favicon": "/images/favicon.ico",
+  "seo": {
+      "indexing": all
+  },
   "navigation": {
     "tabs": [
       {
