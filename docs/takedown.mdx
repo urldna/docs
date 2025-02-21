@@ -19,14 +19,15 @@ graph TD;
     A[Recent Scans] -->|Select Scan| B{Action?}
     B -->|Ignore| C[Ignored Scan]
     B -->|Start Takedown| D[Initiate Takedown]
-    D --> E[IP Abuse Report]
-    D --> F[Domain Abuse Report]
-    D --> G[Google Safe Browsing Report]
-    E & F & G --> H[Takedown Case Status: Open]
+    D --> DA[Takedown Case Status: Open]
+    DA --> E[IP Abuse Report]
+    DA --> F[Domain Abuse Report]
+    DA --> G[Google Safe Browsing Report]
+    E & F & G --> H[Takedown Case Status: Pending Takedown]
     H --> I[View Takedown Case on Scan Page]
     I --> J[Rescan URL]
     J -->|URL Inaccessible/Taken Down| K[Close Takedown Case]
-    K --> L[Closed Takedown Case]
+    K --> L[Takedown Case Status: Close]
     J -->|URL Still Active| H
 ```
 
