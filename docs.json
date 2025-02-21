@@ -27,7 +27,7 @@
   "seo": {
       "indexing": "all",
         "metatags": {
-          "description": "urlDNA helps you detect, monitor, and take action against phishing threats. This documentation provides an overview of our platform’s key functionalities, API references, and integration options."
+          "og:description": "urlDNA helps you detect, monitor, and take action against phishing threats. This documentation provides an overview of our platform’s key functionalities, API references, and integration options."
       }
   },
   "navigation": {
