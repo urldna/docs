@@ -740,7 +740,14 @@
                                         "type": "boolean",
                                         "default": false,
                                         "description": "If true, the scan will not be publicly accessible."
-                                    }
+                                    },
+                                  "submitter_tags": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "string"
+                                      },
+                                      "description": "A list of any tags associated with the scan. Available only for PREMIUM users."
+                                  }
                                 },
                                 "required": ["submitted_url"]
                             }
