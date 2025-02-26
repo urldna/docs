@@ -810,7 +810,7 @@
         "/fast-check": {
             "post": {
                 "summary": "Perform a Fast URL Check",
-                "description": "Quickly assess whether a given URL is CLEAN or MALICIOUS.",
+                "description": "Quickly assess whether a given URL is SAFE or MALICIOUS.",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -842,7 +842,7 @@
                                         },
                                         "status": {
                                             "type": "string",
-                                            "enum": ["CLEAN", "MALICIOUS", "UNRATED"],
+                                            "enum": ["SAFE", "MALICIOUS", "UNRATED"],
                                             "description": "Classification of the URL based on the scan results."
                                         },
                                         "url": {

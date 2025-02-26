@@ -20,22 +20,57 @@ from urldna import UrlDNA
 # Initialize the client with your API key (available in your profile)
 api_key = '<YOUR_API_KEY>'
 client = UrlDNA(api_key)
+```
 
-# Create a scan for a URL
+### Create a scan
+```python
 url = 'https://urldna.io'
+
+# Create a new scan and wait until the scan status is DONE or ERROR
+scan_result = client.create_scan(url) 
+```
+
+```python
+url = 'https://urldna.io'
+
+# Create a new scan and return the scan object while its status is still PENDING or RUNNING
 scan_result = client.create_scan(url)
+```
+
+### Get a scan
+```python
+scan_result = client.get_scan(scan_id)
 
 # Print various scan results
-print(scan_result.cookies)          # List of all cookies found on the webpage
-print(scan_result.dom)              # Complete HTML source code
-print(scan_result.favicon)          # Favicon details including hash and URL
-print(scan_result.http_transactions) # List of all HTTP transactions
-print(scan_result.ip_address)       # IP address details of the URL
-print(scan_result.scan_whois)       # WHOIS information
-print(scan_result.malicious)        # Indicates if the URL may be malicious (beta feature)
-print(scan_result.page)             # Extracted meta tags, headers, and text content
-print(scan_result.screenshot)       # Screenshot URL of the scanned webpage
-print(scan_result.technologies)     # List of detected technologies
+print(scan_result.cookies)           # List of cookies found on the webpage
+print(scan_result.dom)               # Full HTML source code of the page
+print(scan_result.favicon)           # Favicon details, including hash and URL
+print(scan_result.http_transactions) # List of all HTTP requests and responses
+print(scan_result.ip_address)        # IP address associated with the scanned URL
+print(scan_result.scan_whois)        # WHOIS registration details
+print(scan_result.malicious)         # Indicates whether the URL is flagged as malicious (beta feature)
+print(scan_result.page)              # Extracted meta tags, headers, and text content
+print(scan_result.screenshot)        # URL of the captured webpage screenshot
+print(scan_result.technologies)      # List of detected technologies used on the site
+print(scan_result.scan_feedback)     # User-submitted feedback on the scan
+
+```
+
+### Scan feedback
+```python
+# Submit user feedback for a scan (marking the URL as MALICIOUS or SAFE)
+scan_feedback = client.scan_feedback(scan_id, "MALICIOUS")  
+print(scan_feedback.malicious_count)  # Number of users who marked this as malicious
+```
+
+### Fast Check
+```python
+url = 'https://urldna.io'
+
+# Perform a quick reputation check on the URL (returns cached results if available)
+response = client.fast_check(url)
+print(response.status)  # Possible values: MALICIOUS, SAFE, or UNRATED
+
 ```
 
 ## Additional Resources
