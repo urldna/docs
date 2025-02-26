@@ -12,7 +12,7 @@ Install the package using `pip`:
 pip install urldna
 ```
 
-## Basic Usage
+### Setup
 
 ```python
 from urldna import UrlDNA
@@ -34,7 +34,8 @@ scan_result = client.create_scan(url)
 url = 'https://urldna.io'
 
 # Create a new scan and return the scan object while its status is still PENDING or RUNNING
-scan_result = client.create_scan(url)
+scan = client.async_create_scan(url)
+scan_id = scan.id # Use this id to fecth scan result
 ```
 
 ### Get a scan
