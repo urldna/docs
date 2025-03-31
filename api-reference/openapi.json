@@ -2,7 +2,7 @@
     "openapi": "3.0.3",
     "info": {
         "title": "urlDNA API",
-        "version": "2.0.0",
+        "version": "1.0.0",
         "description": "API documentation for urlDNA"
     },
     "servers": [
@@ -1189,13 +1189,13 @@
                 }
             }
         },
-        "/query/{query_id}": {
+        "/query/{id}": {
             "put": {
                 "summary": "Update query object",
                 "description": "Update an existing query object. The request must include a name and a list of query filters.",
                 "parameters": [
                     {
-                        "name": "query_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1231,7 +1231,7 @@
                 "description": "Retrieve details of a specific query object by ID.",
                 "parameters": [
                     {
-                        "name": "query_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1257,7 +1257,7 @@
                 "description": "Delete a specific query object",
                 "parameters": [
                     {
-                        "name": "query_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1272,13 +1272,13 @@
                 }
             }
         },
-        "/query/{query_id}/scans": {
+        "/query/{id}/scans": {
             "get": {
                 "summary": "Get scans matching query filter",
                 "description": "Retrieve all scans that match the specified query filter. Note: This action will increase your daily usage.",
                 "parameters": [
                     {
-                        "name": "query_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1321,13 +1321,13 @@
                 }
             }
         },
-        "/brand/{brand_id}": {
+        "/brand/{id}": {
             "get": {
                 "summary": "Get brand detail",
                 "description": "Retrieve details of a specific chat object. This endpoint is only available for PREMIUM users.",
                 "parameters": [
                     {
-                        "name": "brand_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1349,13 +1349,13 @@
                 }
             }
         },
-        "/brand/{brand_id}/scans": {
+        "/brand/{id}/scans": {
             "get": {
                 "summary": "Get all scans matched with brand",
                 "description": "Retrieve all scans associated with a specific brand. This endpoint is only available for PREMIUM users.",
                 "parameters": [
                     {
-                        "name": "brand_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1402,14 +1402,14 @@
                 }
             }
         },
-        "/chat/{chat_id}": {
+        "/chat/{id}": {
             "get": {
                 "summary": "Get chat details",
                 "description": "Retrieve details of a specific chat object. This endpoint is only available for PREMIUM users.",
                 "operationId": "getChat",
                 "parameters": [
                     {
-                        "name": "chat_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1435,7 +1435,7 @@
                 "description": "Delete a specific chat object. This endpoint is only available for PREMIUM users.",
                 "parameters": [
                     {
-                        "name": "chat_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
