@@ -1696,7 +1696,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Query scans retrieved successfully.",
+                        "description": "List of Scan objects.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1873,7 +1873,7 @@
         },
         "/brand/{brand_id}/scans": {
             "get": {
-                "summary": "Get all scans matched with brand",
+                "summary": "Get all scans matched with brand-",
                 "description": "Retrieve all scans associated with a specific brand. This endpoint is only available for PREMIUM users.",
                 "parameters": [
                     {
@@ -1887,7 +1887,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Brand scans retrieved successfully",
+                        "description": "List of Scan objects.",
                         "content": {
                             "application/json": {
                                 "schema": {
