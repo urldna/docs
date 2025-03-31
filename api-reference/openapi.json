@@ -1696,11 +1696,15 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of scans",
+                        "description": "Query scans retrieved successfully.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Scam"
+                                    "type": "array",
+                                    "description": "List of matching scans, sorted by submission date in descending order.",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Scan"
+                                    }
                                 }
                             }
                         }
@@ -1883,11 +1887,12 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of scans",
+                        "description": "Brand scans retrieved successfully",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "type": "array",
+                                    "description": "List of matching scans, sorted by submission date in descending order.",
                                     "items": {
                                         "$ref": "#/components/schemas/Scan"
                                     }
