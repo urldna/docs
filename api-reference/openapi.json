@@ -1178,7 +1178,24 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Query"
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "A user-defined name for the query."
+                                    },
+                                    "query_filters": {
+                                        "type": "array",
+                                        "description": "A list of filtering conditions that define the query criteria.",
+                                        "items": {
+                                            "$ref": "#/components/schemas/QueryFilter"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "query_filters"
+                                ]
                             }
                         }
                     }
@@ -1219,7 +1236,24 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Query"
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "A user-defined name for the query."
+                                    },
+                                    "query_filters": {
+                                        "type": "array",
+                                        "description": "A list of filtering conditions that define the query criteria.",
+                                        "items": {
+                                            "$ref": "#/components/schemas/QueryFilter"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "query_filters"
+                                ]
                             }
                         }
                     }
@@ -1399,6 +1433,64 @@
                 "responses": {
                     "200": {
                         "description": "List of Chat objects",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Chat"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/chat": {
+            "post": {
+                "summary": "Create new chat object",
+                "description": "Create a new chat object. his endpoint is only available for PREMIUM users.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "prompt": {
+                                        "type": "string",
+                                        "description": "The user-provided input message."
+                                    },
+                                    "response_type": {
+                                        "type": "string",
+                                        "description": "The format of the response. If set to 'JSON', 'json_output' must contain a valid JSON dictionary.",
+                                        "enum": [
+                                            "MARKDOWN",
+                                            "JSON"
+                                        ]
+                                    },
+                                    "scan_id": {
+                                        "type": "string",
+                                        "description": "The associated scan ID"
+                                    },
+                                    "json_output": {
+                                        "type": "object",
+                                        "description": "A valid JSON dictionary containing structured response data. This is required if 'response_type' is 'JSON'."
+                                    }
+                                },
+                                "required": [
+                                    "prompt",
+                                    "response_type",
+                                    "scan_id"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Chat object created",
                         "content": {
                             "application/json": {
                                 "schema": {
