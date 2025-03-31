@@ -810,13 +810,13 @@
         }
     ],
     "paths": {
-        "/scan/{id}": {
+        "/scan/{scan_id}": {
             "get": {
                 "summary": "Retrieve Scan Result",
                 "description": "Fetch the details of a specific scan. If the scan status is PENDING or RUNNING, all attributes (except the scan metadata) will be empty. Accessing a scan in PENDING/RUNNING status will not consume your API daily quota. However, retrieving a scan in DONE/ERROR status will count towards your usage.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "scan_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1040,10 +1040,21 @@
                 }
             }
         },
-        "/scan/{id}/feedback": {
+        "/scan/{scan_id}/feedback": {
             "post": {
                 "summary": "Submit Scan Verdict Feedback",
                 "description": "Provide feedback on the scan verdict. The feedback can either classify the scan as MALICIOUS or SAFE.",
+                "parameters": [
+                    {
+                        "name": "scan_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Unique identifier of the scan."
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1189,13 +1200,13 @@
                 }
             }
         },
-        "/query/{id}": {
+        "/query/{query_id}": {
             "put": {
                 "summary": "Update query object",
                 "description": "Update an existing query object. The request must include a name and a list of query filters.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "query_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1231,7 +1242,7 @@
                 "description": "Retrieve details of a specific query object by ID.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "query_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1257,7 +1268,7 @@
                 "description": "Delete a specific query object",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "query_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1272,13 +1283,13 @@
                 }
             }
         },
-        "/query/{id}/scans": {
+        "/query/{query_id}/scans": {
             "get": {
                 "summary": "Get scans matching query filter",
                 "description": "Retrieve all scans that match the specified query filter. Note: This action will increase your daily usage.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "query_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1321,13 +1332,13 @@
                 }
             }
         },
-        "/brand/{id}": {
+        "/brand/{brand_id}": {
             "get": {
                 "summary": "Get brand detail",
                 "description": "Retrieve details of a specific chat object. This endpoint is only available for PREMIUM users.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "brand_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1349,13 +1360,13 @@
                 }
             }
         },
-        "/brand/{id}/scans": {
+        "/brand/{brand_id}/scans": {
             "get": {
                 "summary": "Get all scans matched with brand",
                 "description": "Retrieve all scans associated with a specific brand. This endpoint is only available for PREMIUM users.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "brand_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1402,14 +1413,14 @@
                 }
             }
         },
-        "/chat/{id}": {
+        "/chat/{chat_id}": {
             "get": {
                 "summary": "Get chat details",
                 "description": "Retrieve details of a specific chat object. This endpoint is only available for PREMIUM users.",
                 "operationId": "getChat",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "chat_id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1435,7 +1446,7 @@
                 "description": "Delete a specific chat object. This endpoint is only available for PREMIUM users.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "chat_id",
                         "in": "path",
                         "required": true,
                         "schema": {
