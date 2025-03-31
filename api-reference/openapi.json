@@ -802,9 +802,29 @@
                     }
                 }
             },
-            "ErrorResponse": {
+            "Exception": {
                 "type": "string",
-                "example": "An error occurred"
+                "example": "Somethings went wrong."
+            },
+            "NonPremiumUserException": {
+                "type": "string",
+                "example": "This functionality is available only for PREMIUM users. Upgrade your plan to access it."
+            },
+            "ApiQuotaExceededException": {
+                "type": "string",
+                "example": "The request cannot be completed because you have exceeded your daily quota. Contact urldna@urldna.io to upgrade your subscription plan."
+            },
+            "ObjectNotFoundException": {
+                "type": "string",
+                "example": "Object not found."
+            },
+            "UnauthorizedException": {
+                "type": "string",
+                "example": "Unauthorized."
+            },
+            "InvalidApiKey": {
+                "type": "string",
+                "example": "Invalid API key."
             }
         }
     },
@@ -841,11 +861,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -855,7 +875,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -865,7 +885,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ApiQuotaExceededException"
                                 }
                             }
                         }
@@ -875,7 +895,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -989,7 +1009,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -999,7 +1019,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ApiQuotaExceededException"
                                 }
                             }
                         }
@@ -1009,7 +1029,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1060,7 +1080,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1070,7 +1090,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ApiQuotaExceededException"
                                 }
                             }
                         }
@@ -1080,7 +1100,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1140,13 +1160,22 @@
                                 }
                             }
                         }
+                    },"400": {
+                        "description": "Bad Request - The client sent an invalid request (e.g., malformed URL).",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
+                                }
+                            }
+                        }
                     },
                     "401": {
                         "description": "Unauthorized - API key is missing or invalid.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1156,7 +1185,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ApiQuotaExceededException"
                                 }
                             }
                         }
@@ -1166,7 +1195,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1238,11 +1267,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -1252,7 +1281,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1262,7 +1291,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1293,7 +1322,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1303,7 +1332,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1334,7 +1363,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1344,7 +1373,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1375,7 +1404,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1385,7 +1414,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1443,7 +1472,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1453,7 +1482,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1514,11 +1543,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -1528,7 +1557,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1538,7 +1567,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1570,11 +1599,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -1584,7 +1613,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1594,7 +1623,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1619,11 +1648,11 @@
                         "description": "Query deleted"
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -1633,7 +1662,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1643,7 +1672,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1677,11 +1706,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -1691,7 +1720,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1701,7 +1730,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ApiQuotaExceededException"
                                 }
                             }
                         }
@@ -1711,7 +1740,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1742,7 +1771,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1752,7 +1781,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
@@ -1762,7 +1791,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1796,11 +1825,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -1810,7 +1839,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1820,7 +1849,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
@@ -1830,7 +1859,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1867,11 +1896,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -1881,7 +1910,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1891,7 +1920,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
@@ -1901,7 +1930,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ApiQuotaExceededException"
                                 }
                             }
                         }
@@ -1911,7 +1940,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -1943,7 +1972,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -1953,7 +1982,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
@@ -1963,7 +1992,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -2031,7 +2060,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -2041,7 +2070,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
@@ -2051,7 +2080,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ApiQuotaExceededException"
                                 }
                             }
                         }
@@ -2061,7 +2090,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -2096,11 +2125,11 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -2110,7 +2139,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -2120,7 +2149,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
@@ -2130,7 +2159,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }
@@ -2155,11 +2184,11 @@
                         "description": "Chat deleted"
                     },
                     "400": {
-                        "description": "Bad Request - The client sent an invalid request (e.g., malformed ID).",
+                        "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/ObjectNotFoundException"
                                 }
                             }
                         }
@@ -2169,7 +2198,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
@@ -2179,7 +2208,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
@@ -2189,7 +2218,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponse"
+                                    "$ref": "#/components/schemas/Exception"
                                 }
                             }
                         }

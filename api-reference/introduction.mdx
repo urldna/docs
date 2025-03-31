@@ -12,8 +12,45 @@ mode: "wide"
 
 * **Metadata Extraction:** Extract information such as cookies, HTTP transactions, technologies, and WHOIS data.
 
-* **Advance Search:** Search for existing scan results using a query string or CQL.
+* **Advanced Search:** Search for existing scan results using a query string or CQL.
 
 * **Fast URL Check:** Quickly verify if a URL is SAFE or MALICIOUS.
 
 * **User Feedback:** Contribute to scan verdicts by providing SAFE or MALICIOUS feedback.
+
+## Query
+
+The **Query API** allows users to perform advanced searches on scanned URLs using structured filtering conditions. Queries can include multiple filters based on attributes such as domain, IP, technology, or detected threats.
+
+### Example Use Cases:
+- Retrieve all scans related to a specific domain or IP.
+- Search for pages using a particular technology (e.g., WordPress, Shopify).
+- Identify all scans flagged as **malicious**.
+
+## Chat (PREMIUM Feature)
+
+The **Chat API** is an exclusive feature for **PREMIUM users**, providing AI-powered insights into scanned URLs. Users can interact with the system to analyze threats, extract structured data, or generate detailed security reports.
+
+### Features:
+- **Interactive Analysis:** Ask AI about scan details and get contextual explanations.
+- **Structured JSON Output:** Request machine-readable JSON responses.
+- **Enhanced Investigations:** Use AI to detect hidden patterns or threats.
+
+**Response Types:**  
+- `MARKDOWN`: Standard response with insights and recommendations.
+- `JSON`: Structured output with key threat indicators.
+
+## Brand (PREMIUM Feature)
+
+The **Brand API** is available for **PREMIUM users**, enabling advanced monitoring of phishing attempts and impersonation threats targeting a specific brand.
+
+### Features:
+- **Track brand-related threats:** Detect domains, websites, or pages impersonating a brand.
+- **Private Brands:** Restrict visibility of certain brands to specific users.
+- **Advanced Analysis:** Identify trends in brand abuse using historical scan data.
+
+This feature is ideal for security teams and brand protection specialists looking to **proactively defend against phishing campaigns**.
+
+---
+
+Explore the full API documentation for detailed usage instructions and examples.
