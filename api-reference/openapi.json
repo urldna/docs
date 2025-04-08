@@ -425,7 +425,7 @@
                     "threat": {
                         "type": "string",
                         "enum": [
-                            "SCAM",
+                            "PHISHING",
                             "SOCIAL_ENGINEERING",
                             "SCAM"
                         ],
