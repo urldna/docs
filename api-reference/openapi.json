@@ -1756,6 +1756,25 @@
             "get": {
                 "summary": "Get list of all related brands to user",
                 "description": "Retrieve all brands associated with the user. This endpoint is only available for PREMIUM users.",
+                "parameters": [{
+                    "name": "filter",
+                    "in": "query",
+                    "description": "Filter brands by visibility. Allowed values: ALL, FREE, PREMIUM, USER_BRANDS",
+                    "required": false,
+                    "schema": {
+                    "type": "string",
+                    "enum": ["ALL", "FREE", "PREMIUM", "USER_BRANDS"]
+                    }
+                },
+                {
+                    "name": "query",
+                    "in": "query",
+                    "description": "Search for brands with similar name",
+                    "required": false,
+                    "schema": {
+                    "type": "string"
+                    }
+                }],
                 "responses": {
                     "200": {
                         "description": "List of Brand objects",
@@ -1883,7 +1902,16 @@
                         "schema": {
                             "type": "string"
                         }
-                    }
+                    },
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "CQL query string to filter brand scans. Refer to the /search endpoint for syntax details.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                }
                 ],
                 "responses": {
                     "200": {
