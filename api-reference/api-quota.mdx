@@ -1,0 +1,42 @@
+---
+title: 'API Quotas & Limit'
+description: 'Understand how API usage is counted and what your daily limits are.'
+---
+
+## How API Usage Is Counted
+
+Each request made to the following endpoints counts against your **daily API quota**:
+
+- [Create Scan](https://docs.urldna.io/api-reference/endpoint/create-scan)
+- [Show Scan](https://docs.urldna.io/api-reference/endpoint/get-scan)
+- [Search](https://docs.urldna.io/api-reference/endpoint/search)
+- [Query Scans](https://docs.urldna.io/api-reference/endpoint/query-scans)
+- [Brand Scan](https://docs.urldna.io/api-reference/endpoint/brand-scans)
+- [Create Chat](https://docs.urldna.io/api-reference/endpoint/create-chat)
+- [Fast Check](https://docs.urldna.io/api-reference/endpoint/fast-check)
+
+### Example Scenarios
+
+- **Search + View Scan**  
+  If you perform a search and then view a scan from the results, this counts as **2 requests** (1 for the search, 1 for the scan retrieval).
+
+- **Create + Retrieve Scan**  
+  Creating a new scan and retrieving it later will also count as **2 requests** (1 for creation, 1 for retrieval).
+
+<Info>
+**Note:** The `Get Scan` endpoint only consumes quota if the scan status is `DONE` or `ERROR`.
+</Info>
+
+---
+
+## Daily API Quota Limits
+
+| User Type       | Daily Quota           |
+|------------------|------------------------|
+| **Free Users**   | 100 API requests/day   |
+| **Premium Users**| 5000 API requests/day  |
+| **Custom Plans** | [Contact us](https://urldna.io/contact-us) for tailored limits |
+
+<Info>
+**Quota resets every 24 hours.**
+</Info>

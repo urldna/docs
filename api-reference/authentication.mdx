@@ -26,34 +26,3 @@ https://api.urldna.io
 ## Response Format
 
 Responses are returned in JSON format. Ensure that your client application can parse and handle JSON data efficiently.
-
-## API Quota Limits
-
-- **Free Users:** 100 API requests per day.
-- **Premium Users:** 5000 API requests per day.
-- **Custom Limits:** If you need tailored API limits, [contact us](https://urldna.io/contact-us).
-
-<Info>
-  Your API quota resets every 24 hours.
-</Info>
-
-### How API Usage Works
-
-Every request to the following endpoints will count against your daily API quota:
-
-- [Create Scan](https://docs.urldna.io/api-reference/endpoint/create-scan)
-- [Show Scan](https://docs.urldna.io/api-reference/endpoint/get-scan)
-- [Search](https://docs.urldna.io/api-reference/endpoint/search)
-- [Query Scans](https://docs.urldna.io/api-reference/endpoint/query-scans)
-- [Brand Scan](https://docs.urldna.io/api-reference/endpoint/brand-scans)
-- [Create Chat](https://docs.urldna.io/api-reference/endpoint/create-chat)
-- [Fast Check](https://docs.urldna.io/api-reference/endpoint/fast-check)
-
-For example:
-
-- If you perform a search that returns a scan, your daily usage will increase by **2** (1 for the search, 1 for retrieving the scan).
-- If you create a new scan and then retrieve it using the scan ID, your usage will increase by **2** (1 for the creation, 1 for the retrieval).
-
-<Info>
-  Important: The `Get Scan` endpoint only consumes quota if the scan status is `DONE`.
-</Info>

@@ -57,6 +57,7 @@
             "pages": [
               "api-reference/introduction",
               "api-reference/authentication",
+              "api-reference/api-usage",
               "api-reference/python"
             ]
           },
