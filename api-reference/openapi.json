@@ -837,7 +837,7 @@
         "/scan/{scan_id}": {
             "get": {
                 "summary": "Retrieve Scan Result",
-                "description": "Fetch the details of a specific scan. If the scan status is PENDING or RUNNING, all attributes (except the scan metadata) will be empty. Accessing a scan in PENDING/RUNNING status will not consume your API daily quota. However, retrieving a scan in DONE/ERROR status will count towards your usage.",
+                "description": "Fetch the details of a specific scan. If the scan status is PENDING or RUNNING, all attributes (except the scan metadata) will be empty.",
                 "parameters": [
                     {
                         "name": "scan_id",
@@ -1683,7 +1683,7 @@
         "/query/{query_id}/scans": {
             "get": {
                 "summary": "Get scans matching query filter",
-                "description": "Retrieve all scans that match the specified query filter. Note: This action will increase your daily usage.",
+                "description": "Retrieve all scans that match the specified query filter.",
                 "parameters": [
                     {
                         "name": "query_id",
@@ -2036,7 +2036,7 @@
         "/chat": {
             "post": {
                 "summary": "Create new chat object",
-                "description": "Create a new chat object. his endpoint is only available for PREMIUM users.",
+                "description": "Create a new chat object. This endpoint is only available for PREMIUM users.",
                 "requestBody": {
                     "required": true,
                     "content": {
