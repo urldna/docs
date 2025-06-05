@@ -23,7 +23,7 @@
     "default": "dark",
     "strict": true
   },
-  "favicon": "/images/favicon.ico",
+  "favicon": "https://urldna.io/favicon.ico",
   "seo": {
       "indexing": "all",
         "metatags": {
