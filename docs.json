@@ -50,40 +50,40 @@
         ]
       },
       {
-        "tab": "API Reference",
+        "tab": "API Documentation",
         "groups": [
           {
             "group": "API Documentation",
             "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/api-usage",
-              "api-reference/python"
+              "api/introduction",
+              "api/authentication",
+              "api/api-usage",
+              "api/python"
             ]
           },
           {
             "group": "Endpoints",
             "pages": [
-              "api-reference/endpoint/create-scan",
-              "api-reference/endpoint/get-scan",
-              "api-reference/endpoint/search",
-              "api-reference/endpoint/fast-check",
-              "api-reference/endpoint/scan-feedback",
-              "api-reference/endpoint/user-agent",
-              "api-reference/endpoint/viewport",
-              "api-reference/endpoint/queries",
-              "api-reference/endpoint/get-query",
-              "api-reference/endpoint/query-scans",
-              "api-reference/endpoint/create-query",
-              "api-reference/endpoint/update-query",
-              "api-reference/endpoint/delete-query",
-              "api-reference/endpoint/brands",
-              "api-reference/endpoint/get-brand",
-              "api-reference/endpoint/brand-scans",
-              "api-reference/endpoint/chats",
-              "api-reference/endpoint/get-chat",
-              "api-reference/endpoint/create-chat",
-              "api-reference/endpoint/delete-chat"
+              "api/endpoint/create-scan",
+              "api/endpoint/get-scan",
+              "api/endpoint/search",
+              "api/endpoint/fast-check",
+              "api/endpoint/scan-feedback",
+              "api/endpoint/user-agent",
+              "api/endpoint/viewport",
+              "api/endpoint/queries",
+              "api/endpoint/get-query",
+              "api/endpoint/query-scans",
+              "api/endpoint/create-query",
+              "api/endpoint/update-query",
+              "api/endpoint/delete-query",
+              "api/endpoint/brands",
+              "api/endpoint/get-brand",
+              "api/endpoint/brand-scans",
+              "api/endpoint/chats",
+              "api/endpoint/get-chat",
+              "api/endpoint/create-chat",
+              "api/endpoint/delete-chat"
             ]
           }
         ]
