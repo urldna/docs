@@ -1085,6 +1085,16 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
+                                }
+                            }
+                        }
+                    },
                     "429": {
                         "description": "Too Many Requests - API quota exceeded.",
                         "content": {
@@ -1800,7 +1810,7 @@
                         }
                     },
                     "403": {
-                        "description": "Forbidden - User is authenticated but lacks required permissions (e.g., not PREMIUM).",
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1868,7 +1878,7 @@
                         }
                     },
                     "403": {
-                        "description": "Forbidden - User is authenticated but lacks required permissions (e.g., not PREMIUM).",
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1949,7 +1959,7 @@
                         }
                     },
                     "403": {
-                        "description": "Forbidden - User is authenticated but lacks required permissions (e.g., not PREMIUM).",
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2011,7 +2021,7 @@
                         }
                     },
                     "403": {
-                        "description": "Forbidden - User is authenticated but lacks required permissions (e.g., not PREMIUM).",
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2099,7 +2109,7 @@
                         }
                     },
                     "403": {
-                        "description": "Forbidden - User is authenticated but lacks required permissions (e.g., not PREMIUM).",
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2178,7 +2188,7 @@
                         }
                     },
                     "403": {
-                        "description": "Forbidden - User is authenticated but lacks required permissions (e.g., not PREMIUM).",
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2237,7 +2247,7 @@
                         }
                     },
                     "403": {
-                        "description": "Forbidden - User is authenticated but lacks required permissions (e.g., not PREMIUM).",
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
                         "content": {
                             "application/json": {
                                 "schema": {
