@@ -1487,6 +1487,16 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
+                                }
+                            }
+                        }
+                    },
                     "500": {
                         "description": "Internal Server Error - Unexpected error occurred.",
                         "content": {
@@ -1568,6 +1578,16 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InvalidApiKey"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden - This functionality is available only for PREMIUM users.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NonPremiumUserException"
                                 }
                             }
                         }
