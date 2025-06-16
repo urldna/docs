@@ -903,7 +903,7 @@
                 }
             }
         },
-        "/scan": {
+        "/v1/scan": {
             "post": {
                 "summary": "Submit a New Scan",
                 "description": "Initiate a new scan request. The response will contain the Scan object. Processing time varies based on system load (typically between 30 seconds and 1 minute) before the full scan result becomes available.",
@@ -1037,7 +1037,7 @@
                 }
             }
         },
-        "/search": {
+        "/v1/search": {
             "post": {
                 "summary": "Search Scans",
                 "description": "Search for existing scan results using a query string or CQL (see the Search documentation for more details).",
@@ -1118,7 +1118,7 @@
                 }
             }
         },
-        "/fast-check": {
+        "/v1/fast-check": {
             "post": {
                 "summary": "Perform a Fast URL Check",
                 "description": "Quickly assess whether a given URL is SAFE or MALICIOUS.",
