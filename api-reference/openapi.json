@@ -2,7 +2,7 @@
     "openapi": "3.0.3",
     "info": {
         "title": "urlDNA API",
-        "version": "2.0.0",
+        "version": "1.0.0",
         "description": "API documentation for urlDNA"
     },
     "servers": [
@@ -834,7 +834,7 @@
         }
     ],
     "paths": {
-        "/scan/{scan_id}": {
+        "/v1/scan/{scan_id}": {
             "get": {
                 "summary": "Retrieve Scan Result",
                 "description": "Fetch the details of a specific scan. If the scan status is PENDING or RUNNING, all attributes (except the scan metadata) will be empty.",
@@ -1213,7 +1213,7 @@
                 }
             }
         },
-        "/scan/{scan_id}/feedback": {
+        "/v1/scan/{scan_id}/feedback": {
             "post": {
                 "summary": "Submit Scan Verdict Feedback",
                 "description": "Provide feedback on the scan verdict. The feedback can either classify the scan as MALICIOUS or SAFE.",
@@ -1309,7 +1309,7 @@
                 }
             }
         },
-        "/user-agents": {
+        "/v1/user-agents": {
             "get": {
                 "summary": "Retrieve Available User Agents",
                 "description": "Fetch a list of user agents that can be used for scanning.",
@@ -1350,7 +1350,7 @@
                 }
             }
         },
-        "/viewports": {
+        "/v1/viewports": {
             "get": {
                 "summary": "Retrieve Available Viewports",
                 "description": "Fetch a list of supported viewport dimensions for scans.",
@@ -1391,7 +1391,7 @@
                 }
             }
         },
-        "/queries": {
+        "/v1/queries": {
             "get": {
                 "summary": "Get list of Query user objects",
                 "description": "Retrieve a list of query objects associated with the user.",
@@ -1432,7 +1432,7 @@
                 }
             }
         },
-        "/query": {
+        "/v1/query": {
             "post": {
                 "summary": "Create new query object",
                 "description": "Create a new query object. The request must include a name and a list of query filters.",
@@ -1510,7 +1510,7 @@
                 }
             }
         },
-        "/query/{query_id}": {
+        "/v1/query/{query_id}": {
             "put": {
                 "summary": "Update query object",
                 "description": "Update an existing query object. The request must include a name and a list of query filters.",
@@ -1710,7 +1710,7 @@
                 }
             }
         },
-        "/query/{query_id}/scans": {
+        "/v1/query/{query_id}/scans": {
             "get": {
                 "summary": "Get scans matching query filter",
                 "description": "Retrieve all scans that match the specified query filter.",
@@ -1782,7 +1782,7 @@
                 }
             }
         },
-        "/brands": {
+        "/v1/brands": {
             "get": {
                 "summary": "Get list of all related brands to user",
                 "description": "Retrieve all brands associated with the user. This endpoint is only available for PREMIUM users.",
@@ -1852,7 +1852,7 @@
                 }
             }
         },
-        "/brand/{brand_id}": {
+        "/v1/brand/{brand_id}": {
             "get": {
                 "summary": "Get brand detail",
                 "description": "Retrieve details of a specific chat object. This endpoint is only available for PREMIUM users.",
@@ -1920,7 +1920,7 @@
                 }
             }
         },
-        "/brand/{brand_id}/scans": {
+        "/v1/brand/{brand_id}/scans": {
             "get": {
                 "summary": "Get all scans matched with brand-",
                 "description": "Retrieve all scans associated with a specific brand. This endpoint is only available for PREMIUM users.",
@@ -2011,7 +2011,7 @@
                 }
             }
         },
-        "/chats": {
+        "/v1/chats": {
             "get": {
                 "summary": "Get all user chats",
                 "description": "Retrieve a list of all chat objects associated with the user. This endpoint is only available for PREMIUM users.",
@@ -2063,7 +2063,7 @@
                 }
             }
         },
-        "/chat": {
+        "/v1/chat": {
             "post": {
                 "summary": "Create new chat object",
                 "description": "Create a new chat object. This endpoint is only available for PREMIUM users.",
@@ -2161,7 +2161,7 @@
                 }
             }
         },
-        "/chat/{chat_id}": {
+        "/v1/chat/{chat_id}": {
             "get": {
                 "summary": "Get chat details",
                 "description": "Retrieve details of a specific chat object. This endpoint is only available for PREMIUM users.",
