@@ -104,6 +104,10 @@
                         "type": "string",
                         "description": "The user agent string associated with the device for simulating the browser environment."
                     },
+                    "http_referer": {
+                        "type": "string",
+                        "description": "The HTTP Referer URL is the address of web page from wich a request for a resource originated."
+                    },
                     "nsfw": {
                         "type": "boolean",
                         "description": "Indicates whether the content of the page contains Not Safe For Work (NSFW) material, such as nudity or adult content."
