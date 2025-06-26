@@ -962,6 +962,10 @@
                                         "type": "string",
                                         "description": "Custom user agent string for the scan request. See User Agents endpoints."
                                     },
+                                    "http_referer": {
+                                        "type": "string",
+                                        "description": "The HTTP Referer URL is the address of web page from wich a request for a resource originated."
+                                    },
                                     "width": {
                                         "type": "integer",
                                         "default": 1920,
