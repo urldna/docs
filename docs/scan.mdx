@@ -42,8 +42,7 @@ When creating a new scan, several attributes can be configured to customize the 
   * **Public**: The scan is visible to all users.
 
   * **Private**: The scan is visible only to the creator (available only for authenticated users).
-
-<Info>Available only for authenticated users.</Info>
+  <Info>Available only for authenticated users.</Info>
 
 * **Device**: Determines whether the scan is performed using a **mobile** or **desktop** device.
 
@@ -52,6 +51,11 @@ When creating a new scan, several attributes can be configured to customize the 
 * **Viewport**: The screen dimensions used for rendering the page. The available options vary based on the selected device and affect the screenshot size.
 
 * **Waiting Time**: Defines how long to wait before scraping data, allowing pages with dynamic content to fully load before capture.
+
+* **HTTP Referer**: Allows specifying a custom HTTP Referer header to be sent with the scan request. If not provided, no referer header will be included by default.
+
+* **Submitter Tags**: A list of tags associated with the scan, which can help categorize, filter, or group scans. Tags are arbitrary strings defined by the user.
+  <Info>Available only for authenticated users.</Info>
 
 ## Show Scan
 
