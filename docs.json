@@ -58,7 +58,8 @@
               "api-reference/introduction",
               "api-reference/authentication",
               "api-reference/api-usage",
-              "api-reference/python"
+              "api-reference/python",
+              "api-reference/example"
             ]
           },
           {

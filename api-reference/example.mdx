@@ -1,0 +1,237 @@
+---
+title: "Examples"
+---
+
+This page contains practical Python snippets for using **urlDNA** to analyze URLs, search scans, and check if emails contain phishing links.  
+You can interact with urlDNA either via direct `requests` calls to the REST API or using the official **`urldna`** Python package for a cleaner interface.
+
+
+## Submit a New Scan
+
+You can submit a suspicious URL to urlDNA and wait for the result. This is useful for analyzing links found in emails or websites.
+
+### Using `requests`
+
+```python
+import time
+import requests
+
+# Replace with your API key from URLDNA
+API_KEY = "your_api_key_here"
+
+# Example: URL extracted from a suspicious email
+suspicious_url = "http://example-phishing.com/login"
+
+# Step 1: Submit the URL for analysis
+response = requests.post(
+    "https://api.urldna.io/v1/scan",
+    headers={"Authorization": f"Bearer {API_KEY}"},
+    json={"submitted_url": suspicious_url}
+)
+
+if response.status_code != 200:
+    raise Exception(f"Scan request failed: {response.text}")
+
+scan = response.json()
+
+# Step 2: Poll until the scan is complete
+while scan.get("status") in ["PENDING", "RUNNING"]:
+    time.sleep(5)  # Wait 5 seconds before polling again
+    scan_id = scan.get("id")
+    result = requests.get(
+        f"https://api.urldna.io/v1/scan/{scan_id}",
+        headers={"Authorization": f"Bearer {API_KEY}"}
+    )
+    if result.status_code != 200:
+        raise Exception(f"Failed to fetch scan result: {result.text}")
+    scan = result.json().get("scan")
+
+# Step 3: Print the verdict
+if scan and scan.get("malicious"):
+    print("⚠️ Warning: This URL is flagged as phishing!")
+else:
+    print("✅ This URL appears safe.")
+```
+
+### Using `urldna` package
+
+```python
+from urldna import UrlDNA
+
+# Replace with your API key from URLDNA
+API_KEY = "your_api_key_here"
+
+# Example: URL extracted from a suspicious email
+suspicious_url = "http://example-phishing.com/login"
+
+# Step 1: Initialize the client
+client = UrlDNA(API_KEY)
+
+# Step 2: Submit the URL for analysis
+scan_result = client.create_scan(suspicious_url)
+
+# Step 3: Print the verdict
+if scan_result.malicious:
+    print("⚠️ Warning: This URL is flagged as phishing!")
+else:
+    print("✅ This URL appears safe.")
+```
+
+## Search Scans
+
+Use the urlDNA _Custom Query Language_ to search across scans. This is useful for finding related phishing pages, suspicious domains, or tracking specific keywords.
+
+### Using `requests`
+
+```python
+import requests
+
+# Replace with your API key from URLDNA
+API_KEY = "your_api_key_here"
+
+# Example query: find malicious scans containing "paypal" in the title
+query = "title LIKE paypal AND malicious = true"
+
+# Perform search
+response = requests.post(
+    "https://api.urldna.io/v1/search",
+    headers={"Authorization": f"Bearer {API_KEY}"},
+    json={"query": query}
+)
+
+if response.status_code != 200:
+    raise Exception(f"Search request failed: {response.text}")
+
+search_results = response.json()
+
+# Print results
+for scan in search_results:
+    print(f"Scan ID: {scan.get('id')}, URL: {scan.get('submitted_url')}")
+```
+
+### Using `urldna` package
+
+```python
+from urldna import UrlDNA
+
+# Replace with your API key from URLDNA
+API_KEY = "your_api_key_here"
+
+# Initialize client
+client = UrlDNA(API_KEY)
+
+# Example query: find malicious scans containing "paypal" in the title
+query = "title LIKE paypal AND malicious = true"
+
+# Perform search
+search_results = client.search(query)
+
+# Print results
+for scan in search_results:
+    print(f"Scan ID: {scan.id}, URL: {scan.submitted_url}")
+```
+
+## Check URL using Fast Check
+
+Fast Check is the quickest way to verify a URL.
+If the response is `CLEAN` or `MALICIOUS`, you can trust the verdict immediately.
+If the status is `UNRATED`, you should submit the URL as a new scan for deeper analysis.
+
+### Using `requests`
+
+```python
+import requests
+
+# Replace with your API key from URLDNA
+API_KEY = "your_api_key_here"
+
+# Example: URL extracted from a suspicious email
+suspicious_url = "http://example-phishing.com/login"
+
+# Step 1: Fast Check the URL
+response = requests.post(
+    "https://api.urldna.io/v1/fast-check",
+    headers={"Authorization": f"Bearer {API_KEY}"},
+    json={"url": suspicious_url}
+)
+
+if response.status_code != 200:
+    raise Exception(f"Fast Check request failed: {response.text}")
+
+result = response.json()
+
+# Step 2: Print result or fall back to full scan
+if result.get("status") != "UNRATED":
+    print(f"URL is already known and labeled as {result.get('status')}")
+else:
+    print("URL not yet rated — submit it as a new scan for deeper analysis.")
+```
+
+### Using `urldna` package
+
+```python
+from urldna import UrlDNA
+
+# Replace with your API key from URLDNA
+API_KEY = "your_api_key_here"
+
+# Example: URL extracted from a suspicious email
+suspicious_url = "http://example-phishing.com/login"
+
+# Step 1: Initialize the client
+client = UrlDNA(API_KEY)
+
+# Step 2: Fast Check the URL
+result = client.fast_check(suspicious_url)
+
+# Step 3: Print result or fall back to full scan
+if result.status != "UNRATED":
+    print(f"URL is already known and labeled as {result.status}")
+else:
+    print("URL not yet rated — submit it as a new scan for deeper analysis.")
+```
+
+## Check Email Safety
+
+You can scan all links inside an email body and determine if the email contains malicious URLs.
+
+### Using `urldna` package
+
+```python
+import re
+from urldna import UrlDNA
+
+# Replace with your API key from URLDNA
+API_KEY = "your_api_key_here"
+
+# Initialize client
+client = UrlDNA(API_KEY)
+
+# Example email body with a phishing link
+email_body = """
+Hi urlDNA,
+
+Please update your password immediately: http://example-phishing.com/login  
+
+Thanks,
+Security Team
+"""
+
+# Extract URLs from the email
+urls = re.findall(r'(https?://\S+)', email_body)
+
+malicious_scans = []
+for url in urls:
+    scan_result = client.create_scan(url)
+    if scan_result and scan_result.malicious:
+        malicious_scans.append(scan_result)
+
+# Print final verdict
+if malicious_scans:
+    print(
+        f"⚠️ This email contains {len(malicious_scans)} phishing URLs! "
+        f"Check these Scan IDs for details: {[scan.id for scan in malicious_scans]}"
+    )
+else:
+    print("✅ This email seems safe.")
+```
