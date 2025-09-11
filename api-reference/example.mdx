@@ -44,10 +44,11 @@ while scan.get("status") in ["PENDING", "RUNNING"]:
     )
     if result.status_code != 200:
         raise Exception(f"Failed to fetch scan result: {result.text}")
-    scan = result.json().get("scan")
+    scan_result = result.json()
+    scan = scan_result.get("scan")
 
 # Step 3: Print the verdict
-if scan and scan.get("malicious"):
+if scan_result and scan_result.get("malicious"):
     print("⚠️ Warning: This URL is flagged as phishing!")
 else:
     print("✅ This URL appears safe.")
