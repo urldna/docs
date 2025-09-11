@@ -32,6 +32,7 @@ response = requests.post(
 if response.status_code != 200:
     raise Exception(f"Scan request failed: {response.text}")
 
+# Get Scan objct
 scan = response.json()
 
 # Step 2: Poll until the scan is complete
