@@ -1209,6 +1209,10 @@
                                         "url": {
                                             "type": "string",
                                             "description": "The URL that was checked."
+                                        },
+                                        "scan_id": {
+                                            "type": "string",
+                                            "description": "Scan ID associated with the checked URL. This attribute is omitted if the URL is not present in the system."
                                         }
                                     }
                                 }
