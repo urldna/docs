@@ -126,7 +126,7 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Go to ulrDNA",
+      "label": "Go to urlDNA",
       "href": "https://urldna.io"
     }
   },
