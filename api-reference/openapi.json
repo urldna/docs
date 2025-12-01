@@ -627,7 +627,7 @@
                         "description": "IP address and geolocation details of the hosting server."
                     },
                     "classification": {
-                        "$ref": "#/components/schemas/classification",
+                        "$ref": "#/components/schemas/Classification",
                         "description": "Classification assessment indicating potential malicious activity."
                     },
                     "page": {

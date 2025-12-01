@@ -44,7 +44,8 @@
               "docs/my-queries",
               "docs/brand-monitor",
               "docs/takedown",
-              "docs/chat"
+              "docs/chat",
+              "docs/graph"
             ]
           }
         ]
