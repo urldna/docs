@@ -422,22 +422,17 @@
                     }
                 }
             },
-            "Malicious": {
+            "Classification": {
                 "type": "object",
-                "description": "Threat classification indicating whether the scanned URL exhibits malicious behavior patterns.",
+                "description": "Represents the AI-driven classification result indicating whether the scanned URL demonstrates potentially malicious behavior.",
                 "properties": {
-                    "malicious": {
-                        "type": "boolean",
-                        "description": "True when the scan identifies indicators of malicious activity."
-                    },
-                    "threat": {
+                    "verdict": {
                         "type": "string",
                         "enum": [
-                            "PHISHING",
-                            "SOCIAL_ENGINEERING",
-                            "SCAM"
+                            "SAFE",
+                            "MALICIOUS"
                         ],
-                        "description": "Specific threat category detected (phishing, social engineering, scam)."
+                        "description": "The final classification verdict. `SAFE` indicates that no threats were detected, while `MALICIOUS` indicates that the AI engine identified potentially harmful or suspicious content."
                     }
                 }
             },
@@ -471,20 +466,6 @@
                     "title": {
                         "type": "string",
                         "description": "Page title extracted from the HTML <title> tag."
-                    }
-                }
-            },
-            "ScanFeedback": {
-                "type": "object",
-                "description": "Community-contributed feedback on scan results, providing crowdsourced threat intelligence.",
-                "properties": {
-                    "malicious_count": {
-                        "type": "number",
-                        "description": "Number of users who classified the page as malicious."
-                    },
-                    "safe_count": {
-                        "type": "number",
-                        "description": "Number of users who classified the page as safe."
                     }
                 }
             },
@@ -645,9 +626,9 @@
                         "$ref": "#/components/schemas/IpAddress",
                         "description": "IP address and geolocation details of the hosting server."
                     },
-                    "malicious": {
-                        "$ref": "#/components/schemas/Malicious",
-                        "description": "Threat assessment indicating potential malicious activity."
+                    "classification": {
+                        "$ref": "#/components/schemas/classification",
+                        "description": "Classification assessment indicating potential malicious activity."
                     },
                     "page": {
                         "$ref": "#/components/schemas/Page",
@@ -656,10 +637,6 @@
                     "scan": {
                         "$ref": "#/components/schemas/Scan",
                         "description": "Scan configuration and processing metadata."
-                    },
-                    "scan_feedback": {
-                        "$ref": "#/components/schemas/ScanFeedback",
-                        "description": "Community feedback on page safety classification."
                     },
                     "scan_whois": {
                         "$ref": "#/components/schemas/ScanWhois",
@@ -690,33 +667,10 @@
                         "type": "string",
                         "description": "Searchable attribute field (e.g., domain, ip, country_code, technology).",
                         "enum": [
-                            "asn",
-                            "city",
-                            "cookie_name",
-                            "cookie_value",
-                            "country_code",
-                            "device",
-                            "domain",
-                            "favicon",
-                            "http_transaction",
-                            "ip",
-                            "isp",
-                            "issuer",
-                            "malicious",
-                            "nsfw",
-                            "org",
-                            "origin",
-                            "outgoing_link",
-                            "protocol",
-                            "screenshot",
-                            "serial_number",
-                            "subject",
-                            "submitted_url",
-                            "target_url",
-                            "technology",
-                            "title",
-                            "submitter_tag",
-                            "registrar"
+                            "id","domain", "ip", "submitted_url", "target_url", "scanned_from", "user_agent", "nsfw", "device",
+                       "origin", "asn", "org", "protocol", "title", "city", "country_code", "isp", "favicon",
+                       "screenshot", "issuer", "serial_number", "subject", "malicious", "technology", "cookie_name", "http_referer",
+                       "cookie_value", "http_transaction", "outgoing_link", "submitter_tag", "registrar", "category", "topic", "language", "text", "redirect_url", "threat"
                         ]
                     },
                     "operator": {
@@ -1245,102 +1199,6 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ApiQuotaExceededException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error - Unexpected server-side error occurred.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Exception"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/v1/scan/{scan_id}/feedback": {
-            "post": {
-                "summary": "Submit Scan Verdict Feedback",
-                "description": "Contributes user feedback on scan classification to improve threat intelligence accuracy. Feedback is aggregated across users and displayed in scan_feedback. Helps identify false positives and false negatives.",
-                "parameters": [
-                    {
-                        "name": "scan_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "description": "Unique scan identifier to provide feedback on."
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "attribute": {
-                                        "type": "string",
-                                        "enum": [
-                                            "SAFE",
-                                            "MALICIOUS"
-                                        ],
-                                        "description": "Your classification of the scanned page."
-                                    }
-                                },
-                                "required": [
-                                    "attribute"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Feedback recorded successfully.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "malicious_count": {
-                                            "type": "number",
-                                            "description": "Total users who classified this scan as MALICIOUS."
-                                        },
-                                        "safe_count": {
-                                            "type": "number",
-                                            "description": "Total users who classified this scan as SAFE."
-                                        },
-                                        "user_feedback": {
-                                            "type": "string",
-                                            "description": "Current user's specific feedback, or null if not provided."
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request - Scan ID not found or invalid.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ObjectNotFoundException"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized - Missing or invalid API key.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InvalidApiKey"
                                 }
                             }
                         }
