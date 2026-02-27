@@ -81,11 +81,7 @@
               "api-reference/endpoint/delete-query",
               "api-reference/endpoint/brands",
               "api-reference/endpoint/get-brand",
-              "api-reference/endpoint/brand-scans",
-              "api-reference/endpoint/chats",
-              "api-reference/endpoint/get-chat",
-              "api-reference/endpoint/create-chat",
-              "api-reference/endpoint/delete-chat"
+              "api-reference/endpoint/brand-scans"
             ]
           }
         ]
