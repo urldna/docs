@@ -5,6 +5,11 @@
     "description": "urlDNA API documentation. This API allows you to scan, analyze, and retrieve insights about URLs, helping to detect potential threats such as phishing, malware, and scams.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://api.urldna.io"
+    }
+  ],
   "paths": {
     "/v1/scan/{scan_id}": {
       "get": {
@@ -2134,7 +2139,7 @@
             "description": "Scan ID associated with the checked URL. This attribute is omitted if the URL is not present in the system."
           },
           "status": {
-            "$ref": "#/components/schemas/StatusEnum",
+            "$ref": "#/components/schemas/FastCheckStatusEnum",
             "description": "URL classification: SAFE (verified benign), MALICIOUS (threat detected), UNRATED (insufficient data)."
           }
         },
@@ -2161,6 +2166,15 @@
           "url"
         ],
         "title": "FastCheckRequest"
+      },
+      "FastCheckStatusEnum": {
+        "type": "string",
+        "enum": [
+          "SAFE",
+          "MALICIOUS",
+          "UNRATED"
+        ],
+        "title": "FastCheckStatusEnum"
       },
       "Favicon": {
         "properties": {

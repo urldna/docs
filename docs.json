@@ -80,7 +80,9 @@
               "api-reference/endpoint/delete-query",
               "api-reference/endpoint/brands",
               "api-reference/endpoint/get-brand",
-              "api-reference/endpoint/brand-scans"
+              "api-reference/endpoint/brand-scans",
+              "api-reference/endpoint/user",
+              "api-reference/endpoint/api-usage"
             ]
           }
         ]
